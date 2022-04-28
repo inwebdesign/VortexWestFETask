@@ -89,5 +89,8 @@
       }
     }
   },
-  "defaultProject": "vortex"
+  "defaultProject": "vortex",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
