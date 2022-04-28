@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 
-export const sharedShareds = createAction(
-  '[Shared] Shared Shareds'
+export const startLibrary = createAction(
+  '[Landing Page Home Component] Start The App'
 );
 
 export const sharedSharedsSuccess = createAction(

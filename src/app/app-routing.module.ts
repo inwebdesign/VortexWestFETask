@@ -3,6 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'library',
+    loadChildren: () => import('./layout/pages/library/library.module').then(m => m.LibraryModule)
+  },
+  {
     path: 'home',
     redirectTo: '',
   },
