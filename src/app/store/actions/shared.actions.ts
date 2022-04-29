@@ -5,7 +5,7 @@ export const startLibrary = createAction(
 );
 
 export const sharedSharedsSuccess = createAction(
-  '[Shared] Shared Shareds Success',
+  '[Genre] Shared Shareds Success',
   props<{ data: any }>()
 );
 

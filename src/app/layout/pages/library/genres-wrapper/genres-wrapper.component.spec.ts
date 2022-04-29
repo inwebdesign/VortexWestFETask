@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GendersWrapperComponent } from './genders-wrapper.component';
+import { GenresWrapperComponent } from './genres-wrapper.component';
 
-describe('GendersWrapperComponent', () => {
-  let component: GendersWrapperComponent;
-  let fixture: ComponentFixture<GendersWrapperComponent>;
+describe('GenresWrapperComponent', () => {
+  let component: GenresWrapperComponent;
+  let fixture: ComponentFixture<GenresWrapperComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GendersWrapperComponent ]
+      declarations: [ GenresWrapperComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GendersWrapperComponent);
+    fixture = TestBed.createComponent(GenresWrapperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
