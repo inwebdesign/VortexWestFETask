@@ -5,18 +5,20 @@ import { catchError, exhaustMap, map, tap } from 'rxjs/operators'
 import { Router } from '@angular/router';
 import { GenreService } from 'src/app/layout/pages/library/genre.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { EMPTY } from 'rxjs';
+import { Location } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { sharedAppState } from '../state';
 
 @Injectable()
 export class SharedEffects {
 
-  loadGenres$ = createEffect(() => 
+  loadGenres$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SharedActions.getGenresRequest),
       exhaustMap(() => {
         return this.genresService.getGenres().pipe(
-          map((data) => 
-            SharedActions.getGenresSuccess({genres: data})
+          map((data) =>
+            SharedActions.getGenresSuccess({ genres: data })
           ),
           catchError((err: HttpErrorResponse) => {
             throw Error(err.message)
@@ -37,11 +39,27 @@ export class SharedEffects {
     },
     { dispatch: false }
   );
+  // redirect to previous page
+  PreviousPageRedirect = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(SharedActions.revertToPreviousPage),
+        tap(() => {
+          this.location.back()
+          this.store.dispatch(SharedActions.selectedGenreId({ id: 0 }))
+          this.store.dispatch(SharedActions.categorySelection({ selected: false }))
+        })
+      );
+    },
+    { dispatch: false }
+  );
 
 
   constructor(
     private actions$: Actions,
     private router: Router,
-    private genresService: GenreService) {}
-    
+    private genresService: GenreService,
+    private location: Location,
+    private store: Store<sharedAppState>) { }
+
 }

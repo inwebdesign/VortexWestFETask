@@ -17,3 +17,20 @@ export const getGenresListFailure = createAction(
   '[Shared] Shared Shareds Failure',
   props<{ error: any }>()
 );
+
+// selected Genre
+export const selectedGenreId = createAction(
+  '[Card Component] Selected Genre ID',
+  props<{id: number}>()
+)
+
+// category (sub/genre) selected
+export const categorySelection = createAction(
+  '[Card Component] Selecte Category - Genre or Subgenre',
+  props<{selected: boolean}>()
+)
+
+// redirect back
+export const revertToPreviousPage = createAction(
+  '[Various Component] Revert To Previous Page'
+)

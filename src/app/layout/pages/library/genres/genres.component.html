@@ -3,8 +3,8 @@
 </div>
 <div class="ui container">
   <div class="buttons">
-    <button class="ui button">
+    <button class="ui button" (click)="gnrService.goBack()">
       <i class="angle double left icon"></i>Back</button>
-    <button class="ui button">Next</button>
+    <button class="ui button" [disabled]="!((isCategorySelected$ | async)?.selected)">Next</button>
   </div>
 </div>

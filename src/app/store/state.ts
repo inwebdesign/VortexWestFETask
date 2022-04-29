@@ -1,7 +1,9 @@
-import { Genres } from "../models/genres";
+import { CategorySelected, GenreId, Genres } from "../models/genres";
 
 export interface sharedAppState {
-  genres: Genres[]
+  genres: Genres[],
+  genreId: GenreId,
+  categorySelected: CategorySelected
 }
 
 export const initialAppState: sharedAppState = {
@@ -17,5 +19,11 @@ export const initialAppState: sharedAppState = {
         }
       ]
     }
-  ]
+  ],
+  genreId: {
+    id: 0
+  },
+  categorySelected: {
+    selected: false
+  }
 }

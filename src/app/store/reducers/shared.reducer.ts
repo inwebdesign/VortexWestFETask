@@ -12,5 +12,17 @@ export const appSharedReducer = createReducer(
       ...state,
       genres
     }
+  }),
+  on(SharedActions.selectedGenreId, (state, id) => {
+    return {
+      ...state,
+      genreId: id
+    }
+  }),
+  on(SharedActions.categorySelection, (state, selected) => {
+    return {
+      ...state,
+      categorySelected: selected
+    }
   })
 );

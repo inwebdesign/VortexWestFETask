@@ -9,3 +9,11 @@ export interface Genres {
   name: string;
   subgenres: SubGenre[]
 }
+
+export interface GenreId {
+  id: number;
+}
+
+export interface CategorySelected {
+  selected: boolean;
+}

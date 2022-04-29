@@ -1,6 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Genres } from 'src/app/models/genres';
+import { categorySelection, selectedGenreId } from 'src/app/store/actions/shared.actions';
+import { sharedAppState } from 'src/app/store/state';
 
 @Component({
   selector: 'app-card',
@@ -9,8 +12,14 @@ import { Genres } from 'src/app/models/genres';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<sharedAppState>) { }
   @Input('genres') genres!: Observable<ReadonlyArray<Genres>>
+  selectedGenre!: number;
+  pickGenre(id: number) {
+    this.selectedGenre = id;
+    this.store.dispatch(selectedGenreId({id}))
+    this.store.dispatch(categorySelection({selected: true}))
+  }
   ngOnInit(): void {
   }
 
