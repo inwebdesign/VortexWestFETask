@@ -6,6 +6,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HomeLibraryComponent } from './home-library/home-library.component';
 import { GenresWrapperComponent } from './genres-wrapper/genres-wrapper.component';
 import { GenresComponent } from './genres/genres.component';
+import { StoreModule } from '@ngrx/store';
+import { appSharedReducer, sharedFeatureKey } from 'src/app/store/reducers/shared.reducer';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { GenresComponent } from './genres/genres.component';
     CommonModule,
     LibraryRoutingModule,
     SharedModule,
+    StoreModule.forFeature(sharedFeatureKey, appSharedReducer)
   ]
 })
 export class LibraryModule { }

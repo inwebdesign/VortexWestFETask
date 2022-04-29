@@ -1,15 +1,19 @@
 import { createAction, props } from '@ngrx/store';
+import { Genres } from 'src/app/models/genres';
 
 export const startLibrary = createAction(
   '[Landing Page Home Component] Start The App'
 );
 
-export const sharedSharedsSuccess = createAction(
-  '[Genre] Shared Shareds Success',
-  props<{ data: any }>()
+export const getGenresRequest = createAction(
+  '[Genres Component] Get List of Genres'
+);
+export const getGenresSuccess = createAction(
+  '[Genres Component] Get List of Genres Success',
+  props<{genres: Genres[]}>()
 );
 
-export const sharedSharedsFailure = createAction(
+export const getGenresListFailure = createAction(
   '[Shared] Shared Shareds Failure',
   props<{ error: any }>()
 );

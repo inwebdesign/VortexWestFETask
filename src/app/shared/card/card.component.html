@@ -1,26 +1,7 @@
-<div class="four column stackable ui grid container">
-  <div class="column">
+<div class="four column stackable ui grid container" *ngIf="(genres | async) as genresList">
+  <div class="column" *ngFor="let genre of genresList">
     <div class="ui segment">
-      <p></p>
-      <p></p>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-      <p></p>
-      <p></p>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-      <p></p>
-      <p></p>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-      <p></p>
-      <p></p>
+      <p>{{genre.name}}</p>
     </div>
   </div>
 </div>

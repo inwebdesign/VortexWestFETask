@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Genres } from 'src/app/models/genres';
 
 @Component({
   selector: 'app-card',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
 
   constructor() { }
-
+  @Input('genres') genres!: Observable<ReadonlyArray<Genres>>
   ngOnInit(): void {
   }
 

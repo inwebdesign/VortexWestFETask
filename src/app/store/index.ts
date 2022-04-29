@@ -6,15 +6,18 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
+import { appSharedReducer } from './reducers/shared.reducer';
+import { APP_SELECTORS } from './selectors/shared.selectors';
+import { sharedAppState } from './state';
 
 
-export interface State {
-
+export interface AppState {
+  [APP_SELECTORS]: sharedAppState;
 }
 
-export const reducers: ActionReducerMap<State> = {
-
+export const appReducers: ActionReducerMap<AppState> = {
+  [APP_SELECTORS]: appSharedReducer
 };
 
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];

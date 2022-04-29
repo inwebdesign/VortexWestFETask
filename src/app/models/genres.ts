@@ -1,11 +1,11 @@
 export interface SubGenre {
   id: number;
   name: string;
-  isDescriptionRequired: string;
+  isDescriptionRequired: boolean;
 }
 
 export interface Genres {
   id: number;
-  title: string;
+  name: string;
   subgenres: SubGenre[]
 }
