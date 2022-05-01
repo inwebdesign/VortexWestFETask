@@ -1,10 +1,6 @@
 <div class="gender">
   <app-card [subgenres]="listOfSubgenres$"></app-card>
 </div>
-<!-- <div class="ui container">
-  <div class="buttons">
-    <button class="ui button" (click)="gnrService.goBack()">
-      <i class="angle double left icon"></i>Back</button>
-    <button class="ui button" [disabled]="!((isCategorySelected$ | async)?.selected)" (click)="navigateToSubgenres()">Next</button>
-  </div>
-</div> -->
+<div class="ui container">
+  <app-buttons></app-buttons>
+</div>
