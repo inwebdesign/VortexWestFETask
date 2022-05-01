@@ -27,6 +27,22 @@ export class SharedEffects {
       })
     )
   )
+  loadSubGenres$ = createEffect(() => 
+      this.actions$.pipe(
+        ofType(SharedActions.getSubgenresRequest),
+        exhaustMap(({id}) => {
+         return this.genresService.getListOfSubgenres(id).pipe(
+           tap(() => {
+             this.router.navigateByUrl('/library/subgenres')
+           }),
+           map((data) => 
+            SharedActions.getSubgenresSuccess({subgenres: data.subgenres})
+           )
+         )
+        })
+      )
+  )
+
   // redirect to library page
   libraryPageRedirect = createEffect(
     () => {

@@ -1,10 +1,10 @@
 import { createAction, props } from '@ngrx/store';
-import { Genres } from 'src/app/models/genres';
+import { Genres, SubGenre, SubgenresList } from 'src/app/models/genres';
 
 export const startLibrary = createAction(
   '[Landing Page Home Component] Start The App'
 );
-
+// handle genres list
 export const getGenresRequest = createAction(
   '[Genres Component] Get List of Genres'
 );
@@ -14,7 +14,21 @@ export const getGenresSuccess = createAction(
 );
 
 export const getGenresListFailure = createAction(
-  '[Shared] Shared Shareds Failure',
+  '[Genres Component] Get List of Genres Failure',
+  props<{ error: any }>()
+);
+// handle subgenres list
+export const getSubgenresRequest = createAction(
+  '[SubgenresWrapper Component] Get List of Subgenres',
+  props<{id: number}>()
+);
+export const getSubgenresSuccess = createAction(
+  '[SubgenresWrapper Component] Get List of Subgenres Success',
+  props<{subgenres: SubGenre[]}>()
+);
+
+export const getSubGenresListFailure = createAction(
+  '[SubgenresWrapper Component] Subgenres List Failure',
   props<{ error: any }>()
 );
 

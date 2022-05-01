@@ -8,13 +8,17 @@ import { GenresWrapperComponent } from './genres-wrapper/genres-wrapper.componen
 import { GenresComponent } from './genres/genres.component';
 import { StoreModule } from '@ngrx/store';
 import { appSharedReducer, sharedFeatureKey } from 'src/app/store/reducers/shared.reducer';
+import { SubgenresWrapperComponent } from './subgenres-wrapper/subgenres-wrapper.component';
+import { SubgenresComponent } from './subgenres/subgenres.component';
 
 
 @NgModule({
   declarations: [
     HomeLibraryComponent,
     GenresWrapperComponent,
-    GenresComponent
+    GenresComponent,
+    SubgenresWrapperComponent,
+    SubgenresComponent
   ],
   imports: [
     CommonModule,

@@ -5,4 +5,11 @@
     </div>
   </div>
 </div>
+<div class="four column stackable ui grid container" *ngIf="(subgenres | async) as subgenresList">
+  <div class="column" *ngFor="let subgenre of subgenresList" (click)="pickGenre(subgenre.id)" >
+    <div class="ui segment" [class.selected_genre]="selectedGenre === subgenre.id">
+      <p>{{subgenre.name}}</p>
+    </div>
+  </div>
+</div>
 

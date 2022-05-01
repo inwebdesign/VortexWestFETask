@@ -24,5 +24,13 @@ export const appSharedReducer = createReducer(
       ...state,
       categorySelected: selected
     }
+  }),
+  on(SharedActions.getSubgenresSuccess, (state, {subgenres}) => {
+    return {
+      ...state,
+      genreSubgenres: {
+        subgenres
+      }
+    }
   })
 );

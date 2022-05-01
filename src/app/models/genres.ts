@@ -14,6 +14,10 @@ export interface GenreId {
   id: number;
 }
 
+export interface SubgenresList {
+  subgenres: SubGenre[]
+}
+
 export interface CategorySelected {
   selected: boolean;
 }
