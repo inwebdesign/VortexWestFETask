@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 import { TitleComponent } from './title/title.component';
 import { CardComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { FormComponent } from './form/form.component';
+import { InputComponent } from './input/input.component';
 
 
 @NgModule({
   declarations: [
     TitleComponent,
     CardComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    FormComponent,
+    InputComponent
   ],
   imports: [
     CommonModule
@@ -17,7 +21,9 @@ import { ButtonsComponent } from './buttons/buttons.component';
   exports: [
     TitleComponent,
     CardComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    FormComponent,
+    InputComponent
   ]
 })
 export class SharedModule { }

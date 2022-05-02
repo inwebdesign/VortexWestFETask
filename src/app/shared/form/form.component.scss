@@ -1,0 +1,12 @@
+.form-size {
+  width: min(750px, 100%);
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  button {
+    width: 10%;
+    position: absolute;
+    right: 3px;
+    bottom: -70px;
+  }
+}

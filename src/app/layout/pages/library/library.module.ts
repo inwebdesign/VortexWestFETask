@@ -10,6 +10,8 @@ import { StoreModule } from '@ngrx/store';
 import { appSharedReducer, sharedFeatureKey } from 'src/app/store/reducers/shared.reducer';
 import { SubgenresWrapperComponent } from './subgenres-wrapper/subgenres-wrapper.component';
 import { SubgenresComponent } from './subgenres/subgenres.component';
+import { InformationComponent } from './information/information.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,12 +20,14 @@ import { SubgenresComponent } from './subgenres/subgenres.component';
     GenresWrapperComponent,
     GenresComponent,
     SubgenresWrapperComponent,
-    SubgenresComponent
+    SubgenresComponent,
+    InformationComponent
   ],
   imports: [
     CommonModule,
     LibraryRoutingModule,
     SharedModule,
+    ReactiveFormsModule,
     StoreModule.forFeature(sharedFeatureKey, appSharedReducer)
   ]
 })

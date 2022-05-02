@@ -1,0 +1,27 @@
+<label
+  class="w-100 block relative bg-dark"
+>
+  <ng-container>
+    <input
+      [type]="type"
+      class="w-100 pdl-4 pdt-4"
+    />
+    <!-- <input
+      [type]="type"
+      class="w-100 pdl-4 pdt-4 shared-input"
+      [formControl]="control"
+      [attr.value]="value ? value : null"
+      [ngClass]="{ 'border-input radius-5 ': !isInlineInput }"
+      [attr.maxlength]="maxLength"
+      (blur)="trim && regService.removeWhiteSpace(control)"
+    /> -->
+    <span class="floating-label absolute">{{ placeholder }}</span>
+  </ng-container>
+</label>
+<!-- <ng-container *ngIf="regService.errors(control) && !isInlineInput">
+  <app-validation-messages
+    [validation]="control"
+    [currentField]="placeholder"
+  ></app-validation-messages>
+</ng-container> -->
+
