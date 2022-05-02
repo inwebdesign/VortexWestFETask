@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -28,6 +29,10 @@ export class GenreService {
       })
     )
   }
+    // Form Control field values pick
+    getFieldControl(item: string, form: FormGroup) {
+      return form.get(item) as FormControl;
+    }
   // redirect to previous page
   goBack() {
     this.store.dispatch(revertToPreviousPage());

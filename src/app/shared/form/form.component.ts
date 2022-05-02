@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { GenreService } from 'src/app/layout/pages/library/genre.service';
 
 @Component({
   selector: 'app-form',
@@ -8,12 +9,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
-  form = new FormGroup({
+  constructor(private genreService: GenreService) { }
+  libraryForm = new FormGroup({
     'bookTitle': new FormControl('', [
       Validators.required
     ]),
-    'Author': new FormControl('', [
+    'author': new FormControl('', [
       Validators.required
     ]),
     'isbn': new FormControl('', [
@@ -34,10 +35,20 @@ export class FormComponent implements OnInit {
     'edition': new FormControl('', [
       Validators.required
     ]),
+    'editionLanguage': new FormControl('', [
+      Validators.required
+    ]),
     'description': new FormControl('', [
       Validators.required
     ]),
   })
+
+  get gnrService() {
+    return this.genreService;
+  }
+  onSubmit() {
+    console.log(this.libraryForm.value)
+  }
   ngOnInit(): void {
   }
 

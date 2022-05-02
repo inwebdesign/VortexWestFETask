@@ -5,6 +5,7 @@ import { CardComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { FormComponent } from './form/form.component';
 import { InputComponent } from './input/input.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { InputComponent } from './input/input.component';
     InputComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     TitleComponent,

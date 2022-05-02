@@ -1,58 +1,69 @@
-<form class="form-size">
+<form class="form-size" [formGroup]="libraryForm">
   <app-input
     placeholder="Book Title"
     type="text"
+    [control]="gnrService.getFieldControl('bookTitle', libraryForm)"
     needTrim="true"
   ></app-input>
   <app-input
     placeholder="Author"
     type="text"
     needTrim="true"
+    [control]="gnrService.getFieldControl('author', libraryForm)"
   ></app-input>
   <app-input
     placeholder="ISBN"
     type="text"
     needTrim="true"
+    [control]="gnrService.getFieldControl('isbn', libraryForm)"
   ></app-input>
   <app-input
     placeholder="Publisher"
     type="text"
     needTrim="true"
+    [control]="gnrService.getFieldControl('publisher', libraryForm)"
   ></app-input>
   <app-input
     placeholder="Date Published"
     type="text"
     needTrim="true"
+    [control]="gnrService.getFieldControl('datePublished', libraryForm)"
   ></app-input>
   <app-input
     placeholder="Number of pages"
     type="text"
     needTrim="true"
+    [control]="gnrService.getFieldControl('numberOfPages', libraryForm)"
   ></app-input>
   <app-input
     placeholder="Format"
     type="text"
     needTrim="true"
+    [control]="gnrService.getFieldControl('format', libraryForm)"
   ></app-input>
   <app-input
     placeholder="Edition"
     type="text"
     needTrim="true"
+    [control]="gnrService.getFieldControl('edition', libraryForm)"
   ></app-input>
   <app-input
     placeholder="Edition Language"
     type="text"
     needTrim="true"
+    [control]="gnrService.getFieldControl('editionLanguage', libraryForm)"
   ></app-input>
   <app-input
     placeholder="Description"
     type="text"
     needTrim="true"
+    [control]="gnrService.getFieldControl('description', libraryForm)"
   ></app-input>
   <button
-  class="block btn-brand btn-large mgx-auto mgy-6 txt-bold"
+  class="block mgx-auto mgy-6 txt-bold"
+  (click)="onSubmit()"
   >
-  let the fun begin!
+  Add
 </button>
 </form>
 

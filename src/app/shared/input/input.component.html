@@ -5,11 +5,11 @@
     <input
       [type]="type"
       class="w-100 pdl-4 pdt-4 shared-input txt-dark300"
+      [formControl]="control"
     />
     <!-- <input
       [type]="type"
       class="w-100 pdl-4 pdt-4 shared-input"
-      [formControl]="control"
       [attr.value]="value ? value : null"
       [ngClass]="{ 'border-input radius-5 ': !isInlineInput }"
       [attr.maxlength]="maxLength"
