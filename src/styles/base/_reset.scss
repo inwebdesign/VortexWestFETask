@@ -1,0 +1,74 @@
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+
+/* Overriding browser's defaults */
+
+:root {
+  // 62.5% of 16px default font size is equal to 10px
+  //font-size: 62.5%;
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: none;
+}
+
+body {
+  line-height: 1.5;
+  font-family: $font-family-regular;
+  font-size: $font-regular;
+  color: $light-primary;
+  overflow-x: hidden;
+}
+
+a,
+button,
+input[type="file"],
+input[type="button"] {
+  cursor: pointer;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus {
+  outline: 1px solid $light-primary;
+}
+
+button:disabled,
+input[type="button"]:disabled {
+  cursor: not-allowed;
+}
+
+input.ng-touched.ng-invalid  {
+  border: 1px solid $error-primary-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-family: 'Cinzel Decorative', cursive;
+}

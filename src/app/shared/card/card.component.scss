@@ -1,4 +1,13 @@
+@import 'variables';
+
+.ui.segment {
+  p{
+    color: $dark-700;
+  }
+}
 .selected_genre {
-  background: #333;
-  color: #fff;
+  background: $dark-700;
+  p {
+    color: $light-primary !important;
+  }
 }

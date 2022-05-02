@@ -1,0 +1,60 @@
+/* Global utility classes */
+
+// displays & layout
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+
+.centered {
+  @include positioning(
+    $top: 50%,
+    $left: 50%,
+    $transform: translate(-50%, -50%)
+  );
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+// min/max sizes
+
+.form-size {
+  width: min(750px, 100%);
+  margin: 0 auto;
+}
+
+/* .active-link {
+  border-bottom: 2px solid $brand-primary-color;
+} */

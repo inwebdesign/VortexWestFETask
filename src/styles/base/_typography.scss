@@ -1,0 +1,88 @@
+/* Typography global */
+// text colors
+
+$txt-colors: (
+  'light': $light-primary,
+  'dark': $dark-primary,
+  'dark400': $dark-400,
+  'dark200': $dark-200,
+  'dark300': $dark-300,
+  'error': $error-primary-color,
+  'error-light': $error-light-color,
+  'warning': $warning-primary-color,
+  'warning-dark': $warning-dark-color,
+  'success': $success-primary-color
+);
+
+@each $colorname, $color in $txt-colors {
+  .txt-#{$colorname} {
+    color: $color;
+  }
+}
+
+// Titles & Subtitles
+
+.title-huge {
+  @include fonts($size: $font-title-xl, $weight: 600);
+  letter-spacing: 0.28px;
+}
+
+.title-large {
+  @include fonts($size: $font-title-large, $weight: 400);
+}
+
+.title-medium {
+  @include fonts($size: $font-title-regular, $weight: 400);
+}
+
+.title-small {
+  @include fonts($size: $font-xl, $weight: 400);
+}
+
+.title-smallest {
+  @include fonts($size: $font-large);
+}
+
+.subtitle-large {
+  @include fonts($size: $font-xl);
+}
+
+// Text
+.text-small {
+  @include fonts($size: $font-small);
+}
+
+.text-smallest {
+  @include fonts($size: $font-smallest);
+}
+
+.text-description {
+  @include fonts($size: $font-description);
+}
+
+.text-small-description {
+  @include fonts($size: $font-small-description);
+}
+
+// Miscellaneous
+
+.underlined {
+  text-decoration: underline;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.txt-left {
+  text-align: left;
+}
+
+.txt-right {
+  text-align: right;
+}
+
+.txt-bold {
+  font-weight: bold;
+}
+

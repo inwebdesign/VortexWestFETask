@@ -1,0 +1,27 @@
+@import "variables", "mixins";
+
+.shared-input {
+  display: inline-block;
+  height: 4.2rem;
+  color: $dark-700;
+}
+
+.input-right-btn {
+  width: 4.2rem;
+  @include positioning($position: absolute, $top: 0, $right: 0);
+}
+
+.floating-label {
+  @include fonts($size: $font-small, $color: $dark-primary);
+  @include positioning($top: 50%, $left: 1rem, $transform: translateY(-50%));
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+input.ng-touched + .floating-label,
+input.ng-dirty + .floating-label,
+input.ng-valid + .floating-label,
+input:focus + .floating-label {
+  @include fonts($size: $font-small-description, $color: $dark-primary);
+  @include positioning($top: 0, $transform: translateY(0));
+}

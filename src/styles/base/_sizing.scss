@@ -1,0 +1,19 @@
+/* WIDTHS & HEIGHTS in percentages */
+
+// Loop trough sizes map to create W/H classes in percentages
+$sizes: 20, 24, 25, 30, 50, 60, 75, 80, 85, 90, 95, 100;
+
+@each $size in $sizes {
+  .w-#{$size} {
+    width: #{$size} + "%";
+  }
+
+  .h-#{$size} {
+    height: #{$size} + "%";
+  }
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
+}

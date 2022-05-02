@@ -1,17 +1,14 @@
+@import 'variables';
+
 .ui.container {
-  padding-bottom: 2rem;
   .title {
-   padding-top: 3rem;
    h1 {
-    text-align: center;
-    font-size: 4.4rem;
-    font-family: 'Cinzel Decorative', cursive;
-    margin-top: 1rem;
+    font-size: $font-title-extra-large;
+    // font-family: 'Cinzel Decorative', cursive;
    }
   }
   .ui.fluid {
     width: 60%;
-    margin: auto;
   }
   .ui.button {
     display: block;

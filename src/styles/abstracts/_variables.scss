@@ -1,0 +1,62 @@
+/* COLORS */
+
+$brand-primary-color: #ffd500;
+$brand-light-color: #ffea80;
+$brand-dark-color: #ccaa00;
+$warning-primary-color: #ffbd39;
+$warning-light-color: #ffef6c;
+$warning-dark-color: #c78d00;
+
+$success-primary-color: #28b328;
+$success-dark-color: #008200;
+$success-light-color: #68e65a;
+
+$info-primary-color: #009fff;
+$info-dark-color: #0071cb;
+$info-light-color: #69d0ff;
+
+$error-primary-color: #ff3939;
+$error-dark-color: #c40011;
+$error-light-color: #ff7364;
+
+// monochromatic shades
+$light-primary: #fff;
+$dark-primary: #000;
+$dark-850: #1d1d1d;
+$dark-800: #282828;
+$dark-750: #333;
+$dark-700: #484848;
+$dark-600: #5b5b5b;
+$dark-500: #6d6d6d;
+$dark-400: #848484;
+$dark-300: #a8a8a8;
+$dark-200: #c8c8c8;
+$dark-100: #e1e1e1;
+
+/* TYPOGRAPHY */ // mobile
+
+$font-family-regular: 'Open Sans', sans-serif;
+
+// titles
+$font-title-extra-large: 4.4rem; // title
+$font-title-xl: 2.8rem; // h1
+$font-title-large: 2.4rem; // h2
+$font-title-regular: 2rem;
+
+// subtitles and texts
+$font-xl: 1.8rem;
+$font-large: 1.6rem;
+$font-regular: 1.5rem;
+$font-small: 1.4rem;
+$font-smallest: 1.3rem;
+
+// labels and descriptions, mobile
+$font-description: 1.2rem;
+$font-small-description: 1.1rem;
+
+// @media breakpoints
+$screen-small: 576px;
+$screen-medium: 768px;
+$screen-large: 992px;
+$screen-extra-large: 1200px;
+$screen-wide: 1400px;

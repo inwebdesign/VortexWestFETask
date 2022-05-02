@@ -1,0 +1,96 @@
+/* Paddings and margins */
+
+// sizes
+$pm-sizes: (
+  "0": 0,
+  "1": 0.25,
+  "2": 0.5,
+  "3": 0.75,
+  "4": 1,
+  "5": 1.5,
+  "6": 2,
+  "7": 2.5,
+  "8": 3
+);
+
+// padding-top
+@each $sizename, $size in $pm-sizes {
+  // horizontal paddings
+  .pda-#{$sizename} {
+    padding: #{$size} + "rem";
+  }
+
+  .pdx-#{$sizename} {
+    padding-left: #{$size} + "rem";
+    padding-right: #{$size} + "rem";
+  }
+
+  .pdr-#{$sizename} {
+    padding-right: #{$size} + "rem";
+  }
+
+  .pdl-#{$sizename} {
+    padding-left: #{$size} + "rem";
+  }
+
+  // vertical paddings
+  .pdy-#{$sizename} {
+    padding-top: #{$size} + "rem";
+    padding-bottom: #{$size} + "rem";
+  }
+
+  .pdt-#{$sizename} {
+    padding-top: #{$size} + "rem";
+  }
+  .pdb-#{$sizename} {
+    padding-bottom: #{$size} + "rem";
+  }
+
+  // horizontal margins
+  .mga-#{$sizename} {
+    margin: #{$size} + "rem";
+  }
+
+  .mgx-#{$sizename} {
+    margin-left: #{$size} + "rem";
+    margin-right: #{$size} + "rem";
+  }
+
+  .mgr-#{$sizename} {
+    margin-right: #{$size} + "rem";
+  }
+
+  .mgl-#{$sizename} {
+    margin-left: #{$size} + "rem";
+  }
+
+  // vertical margins
+  .mgy-#{$sizename} {
+    margin-top: #{$size} + "rem";
+    margin-bottom: #{$size} + "rem";
+  }
+
+  .mgt-#{$sizename} {
+    margin-top: #{$size} + "rem";
+  }
+  .mgb-#{$sizename} {
+    margin-bottom: #{$size} + "rem";
+  }
+}
+
+.mg-center {
+  margin: 0 auto;
+}
+
+.mgx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mgl-auto {
+  margin-left: auto;
+}
+
+.mgr-auto {
+  margin-right: auto;
+}

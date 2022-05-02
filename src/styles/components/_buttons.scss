@@ -1,0 +1,65 @@
+/* Buttons & links */
+
+/* Full colored buttons */
+// loop through $btn-fullcolors map and apply to classes with background-color and color.
+// First value inside () is a class name to apply to .btn-, second is a background color, third is the font color.
+// If there is a need to make a new btn class, just add new keys in map with properties for name, background and color
+
+$btn-fullcolors: ('brand' $brand-primary-color $dark-primary),
+('success' $success-primary-color $light-primary),
+('gray' $dark-600 $light-primary),
+('info-dark' $info-dark-color $light-primary),
+('info' $info-primary-color $light-primary),
+('light' $light-primary $dark-primary ),
+('transparent' 'transparent' $dark-300 ),
+('dark700' $dark-700 $light-primary);
+
+@each $colorname,
+$bgcolor,
+$fontcolor in $btn-fullcolors {
+  .btn-#{$colorname} {
+    background-color: $bgcolor;
+    color: $fontcolor;
+  }
+}
+
+/* sized buttons */
+
+button,
+.btn {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.large {
+  width: 100%;
+  max-width: 33.5rem;
+  padding: 1rem 11rem;
+}
+
+.btn-large {
+  @extend .large;
+  height: 4.2rem;
+  text-transform: uppercase;
+  font-size: $font-large;
+  border-radius: 6px;
+}
+
+.btn-thin-large {
+  @extend .large;
+  height: 3.2rem;
+  font-size: $font-small;
+  border-radius: 4px;
+}
+
+.btn-normal {
+  @include box-size($width: 11.5rem, $height: 4.2rem);
+  padding: 1rem 2.6rem;
+  border-radius: 6px;
+  @include fonts($size: $font-large, $weight: bold);
+}
+
+button:disabled{
+  opacity: 0.8;
+}
