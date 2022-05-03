@@ -62,10 +62,8 @@
   <button
   class="ui button block mgx-auto txt-bold"
   (click)="onSubmit()"
+  [disabled]="libraryForm.invalid"
   >
   Add
 </button>
 </form>
-<!-- [disabled]="!registrationForm.valid || (showLoading$ | async)"
-(click)="onSubmit()" -->
-<!-- [control]="regService.getFieldControl('username', registrationForm)" -->

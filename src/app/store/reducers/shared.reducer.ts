@@ -55,6 +55,14 @@ export const appSharedReducer = createReducer(
       }
     }
   }),
+  on(SharedActions.descriptionRequired, (state, {required}) => {
+    return {
+      ...state,
+      subgenreDescription: {
+        required
+      }
+    }
+  }),
   on(SharedActions.resetProgress, (state) => {
     return {
       ...state,

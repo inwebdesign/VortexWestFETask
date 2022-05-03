@@ -58,6 +58,9 @@ export const decreaseProgress = createAction(
 export const resetProgress = createAction(
   '[Genre Component] Reset Progress Step Indicator'
 )
+export const proceedToFinalStep = createAction(
+  '[New Subgenre Component] Proceed To Final Step After Adding New Subgenre'
+)
 export const finalStep = createAction(
   '[Information Component] Final Step',
   props<{finalStep: boolean}>()
@@ -66,6 +69,11 @@ export const finalStep = createAction(
 export const addNewSubgenre = createAction(
   '[Subgenre Component] Adding New Subgenre',
   props<{newSubgenre: boolean}>()
+)
+// add description
+export const descriptionRequired = createAction(
+  '[New Subgenre Component] Adding Required Description',
+  props<{required: boolean}>()
 )
 // redirect back
 export const revertToPreviousPage = createAction(

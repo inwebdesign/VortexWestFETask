@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
 import { GenreService } from 'src/app/layout/pages/library/genre.service';
+import { Description } from 'src/app/models/genres';
+import { isDescriptionRequired } from 'src/app/store/selectors/shared.selectors';
+import { sharedAppState } from 'src/app/store/state';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnDestroy {
 
-  constructor(private genreService: GenreService) { }
+  isDescriptionRequired$!: Subscription;
+  constructor(private genreService: GenreService, private store: Store<sharedAppState>) {
+    this.isDescriptionRequired$ = this.store.select(isDescriptionRequired).subscribe(res => {
+      res ? this.libraryForm.get('description')?.setValidators(Validators.required) : null
+    })
+  }
+
   libraryForm = new FormGroup({
     'bookTitle': new FormControl('', [
       Validators.required
@@ -38,9 +49,7 @@ export class FormComponent implements OnInit {
     'editionLanguage': new FormControl('', [
       Validators.required
     ]),
-    'description': new FormControl('', [
-      Validators.required
-    ]),
+    'description': new FormControl(''),
   })
 
   get gnrService() {
@@ -49,7 +58,8 @@ export class FormComponent implements OnInit {
   onSubmit() {
     console.log(this.libraryForm.value)
   }
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    this.isDescriptionRequired$.unsubscribe()
   }
 
 }

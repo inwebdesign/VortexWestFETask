@@ -2,7 +2,11 @@
   <form class="form-size w-100" [formGroup]="newSubgenreForm">
     <app-input placeholder="Subgenre name" subgenre="subgenre" type="text" needTrim="true"
       [control]="gnrService.getFieldControl('subgenreName', newSubgenreForm)"></app-input>
-    <button class="ui button block mgx-auto txt-bold subgenre" (click)="onSubmit()">
+      <div class="ui checkbox">
+        <input type="checkbox" name="example" (change)="onCheckChange($event)" formControlName="description">
+        <label>Description is required for this subgenre</label>
+      </div>
+    <button class="ui button block mgx-auto txt-bold subgenre" (click)="onSubmit()" [disabled]="newSubgenreForm.invalid">
       Add
     </button>
   </form>

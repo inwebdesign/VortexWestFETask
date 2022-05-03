@@ -13,14 +13,21 @@ export class NewSubgenreComponent implements OnInit {
   newSubgenreForm = new FormGroup({
     'subgenreName': new FormControl('', [
       Validators.required,
-    ])
+    ]),
+    'description': new FormControl(false)
   })
 
   get gnrService() {
     return this.genreService
   }
+  onCheckChange(event: any) {
+    if (event.target?.checked) {
+      this.newSubgenreForm.patchValue({'description': event.target.checked})
+    }
+  }
   onSubmit() {
-    console.log(this.newSubgenreForm.value)
+    const {description} = this.newSubgenreForm.value
+    this.genreService.setDescriptionRequirement(description, true)
   }
   ngOnInit(): void {
   }

@@ -30,6 +30,10 @@ export interface NewSubgenre {
   newSubgenre: boolean;
 }
 
+export interface Description {
+  required: boolean;
+}
+
 export interface StepIndicator {
   step: number;
 }

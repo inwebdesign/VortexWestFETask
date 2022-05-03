@@ -6,7 +6,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Genres, SubgenresList } from 'src/app/models/genres';
 import { GenresAPI } from 'src/app/shared/endpoints';
-import { decreaseProgress, finalStep, revertToPreviousPage } from 'src/app/store/actions/shared.actions';
+import { descriptionRequired, proceedToFinalStep, revertToPreviousPage } from 'src/app/store/actions/shared.actions';
 import { isFinalStep } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 import { environment } from 'src/environments/environment';
@@ -40,6 +40,11 @@ export class GenreService {
   getIsFinalStep() {
     this.isFinalStep$ = this.store.select(isFinalStep).subscribe(res => this.finalStep = res)
     return this.finalStep
+  }
+  // set subgenre description to required
+  setDescriptionRequirement(required: boolean, redirectAction = false) {
+    this.store.dispatch(descriptionRequired({required: true}))
+    redirectAction ? this.store.dispatch(proceedToFinalStep()) : null
   }
   // redirect to previous page
   goBack() {

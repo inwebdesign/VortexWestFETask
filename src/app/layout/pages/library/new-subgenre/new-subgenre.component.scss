@@ -1,3 +1,4 @@
+@import 'variables';
 .form-size {
   width: 100%;
   position: relative;
@@ -6,5 +7,12 @@
     position: absolute;
     right: 0px;
     bottom: -51px;
+  }
+  .ui.checkbox {
+    label {
+      font-size: 1.5rem !important;
+      padding-left: 2rem !important;
+      color: $light-primary;
+    }
   }
 }
