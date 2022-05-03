@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { GenreService } from 'src/app/layout/pages/library/genre.service';
 
 @Component({
   selector: 'app-input',
@@ -8,12 +9,15 @@ import { FormControl } from '@angular/forms';
 })
 export class InputComponent implements OnInit {
 
-  constructor() { }
+  constructor(private genreService: GenreService) { }
   @Input('placeholder') placeholder!: string;
   @Input('needTrim') trim!: string;
   @Input('type') type!: string;
   @Input('control') control!: FormControl;
 
+  get genrService () {
+    return this.genreService;
+  }
   ngOnInit(): void {
   }
 

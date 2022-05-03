@@ -7,6 +7,7 @@ import { FormComponent } from './form/form.component';
 import { InputComponent } from './input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProgressIndicatorComponent } from './progress-indicator/progress-indicator.component';
+import { ValidationMessageComponent } from './validation-message/validation-message.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ProgressIndicatorComponent } from './progress-indicator/progress-indica
     ButtonsComponent,
     FormComponent,
     InputComponent,
-    ProgressIndicatorComponent
+    ProgressIndicatorComponent,
+    ValidationMessageComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { ProgressIndicatorComponent } from './progress-indicator/progress-indica
     ButtonsComponent,
     FormComponent,
     InputComponent,
-    ProgressIndicatorComponent
+    ProgressIndicatorComponent,
+    ValidationMessageComponent
   ]
 })
 export class SharedModule { }

@@ -18,10 +18,10 @@
     <span class="floating-label absolute">{{ placeholder }}</span>
   </ng-container>
 </label>
-<!-- <ng-container *ngIf="regService.errors(control) && !isInlineInput">
-  <app-validation-messages
+<ng-container *ngIf="genrService.errors(control)">
+  <app-validation-message
     [validation]="control"
     [currentField]="placeholder"
-  ></app-validation-messages>
-</ng-container> -->
+  ></app-validation-message>
+</ng-container>
 

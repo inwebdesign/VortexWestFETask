@@ -1,0 +1,11 @@
+<ng-container *ngIf="validationControl">
+  <div
+    class="txt-error relative mgb-4 mgt-0"
+    *ngIf="controlFormErrors(validationControl)"
+  >
+    <span class="txt-bold"
+      >
+      {{ validationFieldName }}{{ validationMessage }}</span
+    >
+  </div>
+</ng-container>

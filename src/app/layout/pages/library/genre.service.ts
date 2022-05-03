@@ -45,4 +45,15 @@ export class GenreService {
   goBack() {
     this.store.dispatch(revertToPreviousPage());
   }
+  // set errors for validation purpose
+  errors(control: FormControl) {
+    if (control) {
+      const { touched, dirty, errors } = control;
+      if (touched) {
+        return touched;
+      }
+      return touched && dirty && errors;
+    }
+    return null;
+  }
 }
