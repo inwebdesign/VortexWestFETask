@@ -79,3 +79,8 @@ export const descriptionRequired = createAction(
 export const revertToPreviousPage = createAction(
   '[Various Component] Revert To Previous Page'
 )
+// book is submited!!!
+export const bookSubmitionSuccess = createAction(
+  '[Info Component] Book Submition',
+  props<{success: boolean}>()
+)

@@ -1,9 +1,11 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { GenreService } from 'src/app/layout/pages/library/genre.service';
 import { Description } from 'src/app/models/genres';
+import { bookSubmitionSuccess } from 'src/app/store/actions/shared.actions';
 import { isDescriptionRequired } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 
@@ -15,7 +17,7 @@ import { sharedAppState } from 'src/app/store/state';
 export class FormComponent implements OnDestroy {
 
   isDescriptionRequired$!: Subscription;
-  constructor(private genreService: GenreService, private store: Store<sharedAppState>) {
+  constructor(private genreService: GenreService, private store: Store<sharedAppState>, private route: Router) {
     this.isDescriptionRequired$ = this.store.select(isDescriptionRequired).subscribe(res => {
       res ? this.libraryForm.get('description')?.setValidators(Validators.required) : null
     })
@@ -57,6 +59,8 @@ export class FormComponent implements OnDestroy {
   }
   onSubmit() {
     console.log(this.libraryForm.value)
+    this.route.navigateByUrl('/library/success')
+    this.store.dispatch(bookSubmitionSuccess({success: true}))
   }
   ngOnDestroy(): void {
     this.isDescriptionRequired$.unsubscribe()

@@ -86,5 +86,13 @@ export const appSharedReducer = createReducer(
         subgenres
       }
     }
+  }),
+  on(SharedActions.bookSubmitionSuccess, (state, {success}) => {
+    return {
+      ...state,
+      bookSubmited: {
+        success
+      }
+    }
   })
 );

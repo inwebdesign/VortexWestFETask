@@ -41,3 +41,7 @@ export interface StepIndicator {
 export interface FinalStepIndicator {
   finalStep: boolean;
 }
+
+export interface Submit {
+  success: boolean;
+}

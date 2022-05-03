@@ -8,6 +8,7 @@ import { InputComponent } from './input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProgressIndicatorComponent } from './progress-indicator/progress-indicator.component';
 import { ValidationMessageComponent } from './validation-message/validation-message.component';
+import { NotificationMessageComponent } from './notification-message/notification-message.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ValidationMessageComponent } from './validation-message/validation-mess
     FormComponent,
     InputComponent,
     ProgressIndicatorComponent,
-    ValidationMessageComponent
+    ValidationMessageComponent,
+    NotificationMessageComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { ValidationMessageComponent } from './validation-message/validation-mess
     FormComponent,
     InputComponent,
     ProgressIndicatorComponent,
-    ValidationMessageComponent
+    ValidationMessageComponent,
+    NotificationMessageComponent
   ]
 })
 export class SharedModule { }

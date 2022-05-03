@@ -5,6 +5,7 @@ import { GenresWrapperComponent } from './genres-wrapper/genres-wrapper.componen
 import { InformationComponent } from './information/information.component';
 import { NewSubgenreComponent } from './new-subgenre/new-subgenre.component';
 import { SubgenresWrapperComponent } from './subgenres-wrapper/subgenres-wrapper.component';
+import { SuccessSubmitionComponent } from './success-submition/success-submition.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'info',
         component: InformationComponent
+      },
+      {
+        path: 'success',
+        component: SuccessSubmitionComponent
       }
     ]
   },

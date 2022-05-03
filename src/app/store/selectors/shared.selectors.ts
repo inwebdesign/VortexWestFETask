@@ -13,3 +13,4 @@ export const isNewSubgenreAdded = createSelector(getAppState, state => state.add
 export const isDescriptionRequired = createSelector(getAppState, state => state.subgenreDescription.required)
 export const getCurrentStep = createSelector(getAppState, state => state.currentStep.step)
 export const isFinalStep = createSelector(getAppState, state => state.isFinalStep.finalStep)
+export const isBookSubmited = createSelector(getAppState, state => state.bookSubmited.success)

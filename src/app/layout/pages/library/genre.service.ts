@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Genres, SubgenresList } from 'src/app/models/genres';
 import { GenresAPI } from 'src/app/shared/endpoints';
-import { descriptionRequired, proceedToFinalStep, revertToPreviousPage } from 'src/app/store/actions/shared.actions';
+import { bookSubmitionSuccess, descriptionRequired, proceedToFinalStep, revertToPreviousPage } from 'src/app/store/actions/shared.actions';
 import { isFinalStep } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 import { environment } from 'src/environments/environment';
@@ -16,7 +17,7 @@ import { environment } from 'src/environments/environment';
 })
 export class GenreService {
 
-  constructor(private http: HttpClient, private store: Store<sharedAppState>) { }
+  constructor(private http: HttpClient, private store: Store<sharedAppState>, private router: Router) { }
   private BASE_URL = environment.BASE_URL;
   isFinalStep$!: Subscription;
   finalStep = false;
@@ -60,5 +61,10 @@ export class GenreService {
       return touched && dirty && errors;
     }
     return null;
+  }
+  // start new book submition
+  newSubmition() {
+    this.router.navigateByUrl('home')
+    this.store.dispatch(bookSubmitionSuccess({success: false}))
   }
 }

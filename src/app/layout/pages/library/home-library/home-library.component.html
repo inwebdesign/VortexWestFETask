@@ -1,4 +1,4 @@
-<div class="ui container">
+<div class="ui container" *ngIf="!(isBookSubmitedSuccess$ | async)">
   <app-title></app-title>
   <app-progress-indicator></app-progress-indicator>
 </div>

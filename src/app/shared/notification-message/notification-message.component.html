@@ -1,0 +1,10 @@
+<div class="ui container">
+  <div [class]="template" [ngClass]="class">
+    <div class="notification-wrapper">
+      <ng-content select="[message-template]"></ng-content>
+      <ng-content></ng-content>
+    </div>
+    <div></div>
+  </div>
+  
+</div>
