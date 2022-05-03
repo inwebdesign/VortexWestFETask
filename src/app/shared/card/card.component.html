@@ -1,13 +1,13 @@
 <div class="four column stackable ui grid container" *ngIf="(genres | async) as genresList">
-  <div class="column" *ngFor="let genre of genresList" (click)="pickGenre(genre.id)" >
-    <div class="ui segment" [class.selected_genre]="selectedGenre === genre.id">
+  <div class="column" *ngFor="let genre of genresList" (click)="pickGenreOrSubgenre(genre.id)" >
+    <div class="ui segment" [class.selected_genre]="selectedCategory === genre.id">
       <p class="txt-center">{{genre.name}}</p>
     </div>
   </div>
 </div>
 <div class="four column stackable ui grid container" *ngIf="(subgenres | async) as subgenresList">
-  <div class="column" *ngFor="let subgenre of subgenresList" (click)="pickGenre(subgenre.id)" >
-    <div class="ui segment" [class.selected_genre]="selectedGenre === subgenre.id">
+  <div class="column" *ngFor="let subgenre of subgenresList" (click)="pickGenreOrSubgenre(subgenre.id)" >
+    <div class="ui segment" [class.selected_genre]="selectedCategory === subgenre.id">
       <p class="txt-center">{{subgenre.name}}</p>
     </div>
   </div>

@@ -37,13 +37,31 @@ export const selectedGenreId = createAction(
   '[Card Component] Selected Genre ID',
   props<{id: number}>()
 )
+// selected Subgenre
+export const selectedSubGenreId = createAction(
+  '[Card Component] Selected SubGenre ID',
+  props<{id: number}>()
+)
 
 // category (sub/genre) selected
 export const categorySelection = createAction(
   '[Card Component] Selecte Category - Genre or Subgenre',
   props<{selected: boolean}>()
 )
-
+// handle steps of progress
+export const increaseProgress = createAction(
+  '[Genre/Subgenre Component] Increase Step Forward'
+)
+export const decreaseProgress = createAction(
+  '[Genre/Subgenre Component] Decrease Step Forward'
+)
+export const resetProgress = createAction(
+  '[Genre Component] Reset Progress Step Indicator'
+)
+export const finalStep = createAction(
+  '[Information Component] Final Step',
+  props<{finalStep: boolean}>()
+)
 // redirect back
 export const revertToPreviousPage = createAction(
   '[Various Component] Revert To Previous Page'

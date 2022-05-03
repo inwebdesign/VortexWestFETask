@@ -19,10 +19,48 @@ export const appSharedReducer = createReducer(
       genreId: id
     }
   }),
+  on(SharedActions.selectedSubGenreId, (state, id) => {
+    return {
+      ...state,
+      subgenreId: id
+    }
+  }),
   on(SharedActions.categorySelection, (state, selected) => {
     return {
       ...state,
       categorySelected: selected
+    }
+  }),
+  on(SharedActions.increaseProgress, (state) => {
+    return {
+      ...state,
+      currentStep: {
+        step: state.currentStep.step + 1
+      }
+    }
+  }),
+  on(SharedActions.decreaseProgress, (state) => {
+    return {
+      ...state,
+      currentStep: {
+        step: state.currentStep.step - 1
+      }
+    }
+  }),
+  on(SharedActions.resetProgress, (state) => {
+    return {
+      ...state,
+      currentStep: {
+        step: 0
+      }
+    }
+  }),
+  on(SharedActions.finalStep, (state, {finalStep}) => {
+    return {
+      ...state,
+      isFinalStep: {
+        finalStep
+      }
     }
   }),
   on(SharedActions.getSubgenresSuccess, (state, {subgenres}) => {

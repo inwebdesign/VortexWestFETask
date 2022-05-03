@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { SubGenre } from 'src/app/models/genres';
+import { categorySelection } from 'src/app/store/actions/shared.actions';
 import { getSubGenres } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 
@@ -17,6 +18,7 @@ export class SubgenresComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.store.dispatch(categorySelection({selected: false}))
   }
 
 }

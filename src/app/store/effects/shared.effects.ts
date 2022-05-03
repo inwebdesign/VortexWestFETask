@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as SharedActions from '../actions/shared.actions'
-import { catchError, exhaustMap, map, tap } from 'rxjs/operators'
-import { Router } from '@angular/router';
+import { catchError, exhaustMap, filter, map, tap } from 'rxjs/operators'
+import { NavigationEnd, Router } from '@angular/router';
 import { GenreService } from 'src/app/layout/pages/library/genre.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Location } from '@angular/common';
@@ -61,9 +61,31 @@ export class SharedEffects {
       return this.actions$.pipe(
         ofType(SharedActions.revertToPreviousPage),
         tap(() => {
-          this.location.back()
-          this.store.dispatch(SharedActions.selectedGenreId({ id: 0 }))
-          this.store.dispatch(SharedActions.categorySelection({ selected: false }))
+         
+          if(this.router.url === '/library/info') {
+            this.router.navigateByUrl('/library/subgenres')
+            this.store.dispatch(SharedActions.decreaseProgress());
+            this.store.dispatch(SharedActions.categorySelection({ selected: false }))
+            this.store.dispatch(SharedActions.finalStep({finalStep: false}))
+            return
+          }
+          if(this.router.url === '/library/subgenres') {
+            this.router.navigateByUrl('/library')
+            this.store.dispatch(SharedActions.decreaseProgress());
+            this.store.dispatch(SharedActions.selectedSubGenreId({ id: 0 }))
+            this.store.dispatch(SharedActions.selectedGenreId({ id: 0 }))
+            this.store.dispatch(SharedActions.categorySelection({ selected: false }))
+            return
+          }
+          if(this.router.url === '/library' && NavigationEnd) {
+            this.router.navigateByUrl('home')
+            this.store.dispatch(SharedActions.resetProgress())
+            this.store.dispatch(SharedActions.selectedGenreId({ id: 0 }))
+            this.store.dispatch(SharedActions.categorySelection({ selected: false }))
+            return
+          }
+          this.store.dispatch(SharedActions.finalStep({finalStep: false}))
+      
         })
       );
     },

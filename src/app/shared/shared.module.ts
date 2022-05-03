@@ -6,6 +6,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { FormComponent } from './form/form.component';
 import { InputComponent } from './input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProgressIndicatorComponent } from './progress-indicator/progress-indicator.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CardComponent,
     ButtonsComponent,
     FormComponent,
-    InputComponent
+    InputComponent,
+    ProgressIndicatorComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CardComponent,
     ButtonsComponent,
     FormComponent,
-    InputComponent
+    InputComponent,
+    ProgressIndicatorComponent
   ]
 })
 export class SharedModule { }

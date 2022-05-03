@@ -1,6 +1,10 @@
 <div class="buttons">
   <button class="ui button" (click)="gnrService.goBack()">
     <i class="angle double left icon"></i>Back</button>
-  <button class="ui button" [disabled]="!((isCategorySelected$ | async)?.selected)" (click)="navigateToSubgenres()">Next</button>
+  <button 
+    class="ui button" 
+    [disabled]="!((isCategorySelected$ | async)?.selected)" 
+    (click)="navigateToNextStep()"
+    [class.btn-hidden]="finalStep$ | async">Next</button>
 </div>
 

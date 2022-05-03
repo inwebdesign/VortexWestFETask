@@ -60,6 +60,11 @@ button,
   @include fonts($size: $font-large, $weight: bold);
 }
 
+.btn-hidden {
+  visibility: hidden !important;
+}
+
 button:disabled{
   opacity: 0.8;
 }
+

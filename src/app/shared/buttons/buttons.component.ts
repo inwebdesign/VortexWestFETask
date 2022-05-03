@@ -1,10 +1,11 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { GenreService } from 'src/app/layout/pages/library/genre.service';
 import { CategorySelected } from 'src/app/models/genres';
-import { getSubgenresRequest } from 'src/app/store/actions/shared.actions';
-import { getGenreId, isCategorySelected } from 'src/app/store/selectors/shared.selectors';
+import { finalStep, getSubgenresRequest, increaseProgress } from 'src/app/store/actions/shared.actions';
+import { getCurrentStep, getGenreId, getSubGenreId, isCategorySelected, isFinalStep } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 
 @Component({
@@ -15,21 +16,39 @@ import { sharedAppState } from 'src/app/store/state';
 export class ButtonsComponent implements OnDestroy {
   isCategorySelected$!: Observable<CategorySelected>
   selectedGenreId$!: Subscription;
-  id!: number
+  selectedSubgenreId$!: Subscription;
+  genreId!: number;
+  subgenreId!: number;
+  currentStep = 0
+  finalStep$!: Observable<boolean>
+  currentStep$!: Subscription
 
-  constructor(private store: Store<sharedAppState>, private genreService: GenreService) { 
+  constructor(private store: Store<sharedAppState>, private genreService: GenreService, private route: Router) { 
     this.isCategorySelected$ = this.store.select(isCategorySelected)
-    this.selectedGenreId$ = this.store.select(getGenreId).subscribe(res => this.id = res.id)
+    this.selectedGenreId$ = this.store.select(getGenreId).subscribe(res => this.genreId = res.id)
+    this.selectedSubgenreId$ = this.store.select(getSubGenreId).subscribe(res => this.subgenreId = res.id)
+    this.finalStep$ = this.store.select(isFinalStep)
+    this.currentStep$ = this.store.select(getCurrentStep).subscribe(res => this.currentStep = res)
   }
   get gnrService() {
     return this.genreService;
   }
-  navigateToSubgenres() {
-    this.store.dispatch(getSubgenresRequest({id: this.id }))
+  navigateToNextStep() {
+    this.store.dispatch(increaseProgress());
+    if(this.subgenreId) {
+      this.route.navigateByUrl('/library/info')
+      return
+    }
+    if (this.genreId) {
+      this.store.dispatch(getSubgenresRequest({id: this.genreId }))
+      return
+    }
    }
 
   ngOnDestroy(): void {
     this.selectedGenreId$.unsubscribe()
+    this.selectedSubgenreId$.unsubscribe()
+    this.currentStep$.unsubscribe()
   }
 
 
