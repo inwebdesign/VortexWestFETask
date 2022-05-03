@@ -11,9 +11,9 @@
       <p class="txt-center">{{subgenre.name}}</p>
     </div>
   </div>
-  <div class="column">
-    <div class="ui segment">
-      <p class="txt-center">Add New</p>
+  <div class="column" (click)="addNewSubgenre(subgenresList)" >
+    <div class="ui segment" [class.selected_genre]="addSubgenre">
+      <p class="txt-center" >Add New</p>
     </div>
   </div>
 </div>

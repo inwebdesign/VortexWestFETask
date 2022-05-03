@@ -3,8 +3,8 @@
     <i class="angle double left icon"></i>Back</button>
   <button 
     class="ui button" 
-    [disabled]="!((isCategorySelected$ | async)?.selected)" 
+    [disabled]="!(((isCategorySelected$ | async)?.selected) || ((isNewSubgenre$ | async)?.newSubgenre))" 
     (click)="navigateToNextStep()"
-    [class.btn-hidden]="finalStep$ | async">Next</button>
+    [class.btn-hidden]="(finalStep$ | async) || ((isNewSubgenre$ | async) && currentStep >= 2)">Next</button>
 </div>
 

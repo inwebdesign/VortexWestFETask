@@ -1,0 +1,10 @@
+<div class="ui container">
+  <form class="form-size w-100" [formGroup]="newSubgenreForm">
+    <app-input placeholder="Subgenre name" subgenre="subgenre" type="text" needTrim="true"
+      [control]="gnrService.getFieldControl('subgenreName', newSubgenreForm)"></app-input>
+    <button class="ui button block mgx-auto txt-bold subgenre" (click)="onSubmit()">
+      Add
+    </button>
+  </form>
+  <app-buttons></app-buttons>
+</div>

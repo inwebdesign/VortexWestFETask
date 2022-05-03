@@ -62,6 +62,11 @@ export const finalStep = createAction(
   '[Information Component] Final Step',
   props<{finalStep: boolean}>()
 )
+// add new subgenre
+export const addNewSubgenre = createAction(
+  '[Subgenre Component] Adding New Subgenre',
+  props<{newSubgenre: boolean}>()
+)
 // redirect back
 export const revertToPreviousPage = createAction(
   '[Various Component] Revert To Previous Page'

@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { GenreService } from 'src/app/layout/pages/library/genre.service';
-import { CategorySelected } from 'src/app/models/genres';
-import { finalStep, getSubgenresRequest, increaseProgress } from 'src/app/store/actions/shared.actions';
-import { getCurrentStep, getGenreId, getSubGenreId, isCategorySelected, isFinalStep } from 'src/app/store/selectors/shared.selectors';
+import { CategorySelected, NewSubgenre } from 'src/app/models/genres';
+import { getSubgenresRequest, increaseProgress } from 'src/app/store/actions/shared.actions';
+import { getCurrentStep, getGenreId, getSubGenreId, isCategorySelected, isFinalStep, isNewSubgenreAdded } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 
 @Component({
@@ -15,6 +15,8 @@ import { sharedAppState } from 'src/app/store/state';
 })
 export class ButtonsComponent implements OnDestroy {
   isCategorySelected$!: Observable<CategorySelected>
+  isNewSubgenre$!: Observable<NewSubgenre>
+  isNewSubgenreAdded = false
   selectedGenreId$!: Subscription;
   selectedSubgenreId$!: Subscription;
   genreId!: number;
@@ -25,6 +27,8 @@ export class ButtonsComponent implements OnDestroy {
 
   constructor(private store: Store<sharedAppState>, private genreService: GenreService, private route: Router) { 
     this.isCategorySelected$ = this.store.select(isCategorySelected)
+    this.isNewSubgenre$ = this.store.select(isNewSubgenreAdded)
+    this.store.select(isNewSubgenreAdded).subscribe(res => this.isNewSubgenreAdded = res.newSubgenre)
     this.selectedGenreId$ = this.store.select(getGenreId).subscribe(res => this.genreId = res.id)
     this.selectedSubgenreId$ = this.store.select(getSubGenreId).subscribe(res => this.subgenreId = res.id)
     this.finalStep$ = this.store.select(isFinalStep)
@@ -35,6 +39,10 @@ export class ButtonsComponent implements OnDestroy {
   }
   navigateToNextStep() {
     this.store.dispatch(increaseProgress());
+    if(this.isNewSubgenreAdded) {
+      this.route.navigateByUrl('/library/new')
+      return
+    }
     if(this.subgenreId) {
       this.route.navigateByUrl('/library/info')
       return

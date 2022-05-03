@@ -12,6 +12,7 @@ import { SubgenresWrapperComponent } from './subgenres-wrapper/subgenres-wrapper
 import { SubgenresComponent } from './subgenres/subgenres.component';
 import { InformationComponent } from './information/information.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NewSubgenreComponent } from './new-subgenre/new-subgenre.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     GenresComponent,
     SubgenresWrapperComponent,
     SubgenresComponent,
-    InformationComponent
+    InformationComponent,
+    NewSubgenreComponent
   ],
   imports: [
     CommonModule,

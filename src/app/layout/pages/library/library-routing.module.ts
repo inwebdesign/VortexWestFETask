@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeLibraryComponent } from '../library/home-library/home-library.component';
 import { GenresWrapperComponent } from './genres-wrapper/genres-wrapper.component';
 import { InformationComponent } from './information/information.component';
+import { NewSubgenreComponent } from './new-subgenre/new-subgenre.component';
 import { SubgenresWrapperComponent } from './subgenres-wrapper/subgenres-wrapper.component';
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'subgenres',
         component: SubgenresWrapperComponent
+      },
+      {
+        path: 'new',
+        component: NewSubgenreComponent
       },
       {
         path: 'info',

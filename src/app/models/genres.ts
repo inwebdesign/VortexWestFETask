@@ -26,6 +26,10 @@ export interface CategorySelected {
   selected: boolean;
 }
 
+export interface NewSubgenre {
+  newSubgenre: boolean;
+}
+
 export interface StepIndicator {
   step: number;
 }

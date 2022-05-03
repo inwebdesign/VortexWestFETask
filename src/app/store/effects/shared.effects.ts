@@ -62,6 +62,14 @@ export class SharedEffects {
         ofType(SharedActions.revertToPreviousPage),
         tap(() => {
          
+          if(this.router.url === '/library/new') {
+            this.router.navigateByUrl('/library/subgenres')
+            this.store.dispatch(SharedActions.decreaseProgress());
+            this.store.dispatch(SharedActions.categorySelection({ selected: false }))
+            this.store.dispatch(SharedActions.finalStep({finalStep: false}))
+            this.store.dispatch(SharedActions.addNewSubgenre({newSubgenre: false}))
+            return
+          }
           if(this.router.url === '/library/info') {
             this.router.navigateByUrl('/library/subgenres')
             this.store.dispatch(SharedActions.decreaseProgress());

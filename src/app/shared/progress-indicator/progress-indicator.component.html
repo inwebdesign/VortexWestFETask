@@ -1,4 +1,4 @@
-<div class="ui three steps">
+<div class="ui steps" [class]="(((currentStep$ | async) == 2 && (newSubgenre$ | async)?.newSubgenre) ? 'four' : 'three')">
   <div class="step" [class]="(currentStep$ | async) == 0 ? 'active' : 'disabled'">
     <i class="truck icon"></i>
     <div class="content">
@@ -11,6 +11,14 @@
       <div class="title">Billing</div>
     </div>
   </div>
+  <ng-container *ngIf="(currentStep$ | async) == 2 && (newSubgenre$ | async)?.newSubgenre">
+    <div class="step active">
+      <i class="payment icon"></i>
+      <div class="content">
+        <div class="title">New Subgenre</div>
+      </div>
+    </div>
+  </ng-container>
   <div class="step" [class]="handleStepProgress(currentStep$ | async) ? 'active' : 'disabled'">
     <i class="info icon"></i>
     <div class="content">

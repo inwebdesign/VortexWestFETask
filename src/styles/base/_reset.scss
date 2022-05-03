@@ -26,7 +26,12 @@ body {
   color: $light-primary;
   overflow-x: hidden;
 }
-
+.ui.container {
+  width: 900px !important;
+}
+.ui.grid.container {
+  width: calc( 900px + 2rem ) !important;
+}
 a,
 button,
 input[type="file"],
