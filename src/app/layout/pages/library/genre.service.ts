@@ -21,10 +21,17 @@ export class GenreService {
   private BASE_URL = environment.BASE_URL;
   isFinalStep$!: Subscription;
   finalStep = false;
+  
+  // get subgenres list for refresh
   get subgernes() {
     const subList = localStorage.getItem('subgenres')
     if (subList == undefined) return
     return JSON.parse(subList)
+  }
+  // get description required info
+  get descriptionRequired() {
+    const description = localStorage.getItem('description')
+    if (description) return JSON.parse(description)
   }
   // get list of genres
   getGenres(): Observable<Genres[]> {

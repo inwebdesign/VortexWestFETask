@@ -74,6 +74,7 @@ export class SharedEffects {
             this.store.dispatch(SharedActions.decreaseProgress());
             this.store.dispatch(SharedActions.categorySelection({ selected: false }))
             this.store.dispatch(SharedActions.finalStep({ finalStep: false }))
+            localStorage.removeItem('description')
             return
           }
           if (this.router.url === '/library/subgenres') {
@@ -105,7 +106,6 @@ export class SharedEffects {
       return this.actions$.pipe(
         ofType(SharedActions.proceedToFinalStep),
         tap(() => {
-          this.store.dispatch(SharedActions.increaseProgress())
           this.store.dispatch(SharedActions.finalStep({finalStep: true}))
           this.router.navigateByUrl('/library/info')
         })

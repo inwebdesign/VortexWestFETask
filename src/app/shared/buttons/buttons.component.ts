@@ -44,8 +44,9 @@ export class ButtonsComponent implements OnDestroy {
       return
     }
     if(this.subgenreId) {
-      this.route.navigateByUrl('/library/info')
       this.store.dispatch(finalStep({finalStep: true}))
+      if (this.genreService.descriptionRequired) this.genreService.setDescriptionRequirement(this.genreService.descriptionRequired, true)
+      this.route.navigateByUrl('/library/info')
       return
     }
     if (this.genreId) {

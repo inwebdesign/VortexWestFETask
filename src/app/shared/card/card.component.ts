@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Genres, SubGenre } from 'src/app/models/genres';
-import { addNewSubgenre, categorySelection, finalStep, getGenresRequest, increaseProgress, selectedGenreId, selectedSubGenreId } from 'src/app/store/actions/shared.actions';
-import { getGenreId, getGenres } from 'src/app/store/selectors/shared.selectors';
+import { addNewSubgenre, categorySelection, selectedGenreId, selectedSubGenreId } from 'src/app/store/actions/shared.actions';
+import { getGenreId } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 
 @Component({
@@ -24,7 +24,7 @@ export class CardComponent implements OnInit {
   subgnresList!: any[];
   listSubgenres!: ReadonlyArray<SubGenre>
 
-  pickGenreOrSubgenre(id: number, list?: any) {
+  pickGenreOrSubgenre(id: number, list?: any, required?: boolean) {
     localStorage.setItem('subgenres', JSON.stringify(list))
     this.addSubgenre ? this.toggleNewSubgenre() : ''
     this.store.dispatch(addNewSubgenre({newSubgenre: false}))
@@ -36,14 +36,13 @@ export class CardComponent implements OnInit {
      }
      this.store.dispatch(selectedSubGenreId({id}))
      this.store.dispatch(categorySelection({selected: true}))
-
+    if(required) localStorage.setItem('description', 'true')
   }
   addNewSubgenre(list: any) {
     this.subgnresList = Object.values(list)
     const id = this.subgnresList.pop().id + 1
     this.store.dispatch(selectedSubGenreId({id}))
     this.store.dispatch(addNewSubgenre({newSubgenre: true}))
-    // this.store.dispatch(increaseProgress())
     this.toggleNewSubgenre()
   }
 
