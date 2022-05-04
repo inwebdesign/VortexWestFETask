@@ -44,7 +44,7 @@ export class GenreService {
   }
   // set subgenre description to required
   setDescriptionRequirement(required: boolean, redirectAction = false) {
-    this.store.dispatch(descriptionRequired({required: true}))
+    this.store.dispatch(descriptionRequired({required}))
     redirectAction ? this.store.dispatch(proceedToFinalStep()) : null
   }
   // redirect to previous page

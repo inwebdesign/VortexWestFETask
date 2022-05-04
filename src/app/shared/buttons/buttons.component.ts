@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { GenreService } from 'src/app/layout/pages/library/genre.service';
 import { CategorySelected, NewSubgenre } from 'src/app/models/genres';
-import { getSubgenresRequest, increaseProgress } from 'src/app/store/actions/shared.actions';
+import { finalStep, getSubgenresRequest, increaseProgress } from 'src/app/store/actions/shared.actions';
 import { getCurrentStep, getGenreId, getSubGenreId, isCategorySelected, isFinalStep, isNewSubgenreAdded } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 
@@ -45,6 +45,7 @@ export class ButtonsComponent implements OnDestroy {
     }
     if(this.subgenreId) {
       this.route.navigateByUrl('/library/info')
+      this.store.dispatch(finalStep({finalStep: true}))
       return
     }
     if (this.genreId) {

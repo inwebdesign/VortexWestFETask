@@ -88,6 +88,7 @@ export class SharedEffects {
             this.router.navigateByUrl('home')
             this.store.dispatch(SharedActions.resetProgress())
             this.store.dispatch(SharedActions.selectedGenreId({ id: 0 }))
+            this.store.dispatch(SharedActions.selectedSubGenreId({ id: 0 }))
             this.store.dispatch(SharedActions.categorySelection({ selected: false }))
             return
           }
@@ -105,6 +106,7 @@ export class SharedEffects {
         ofType(SharedActions.proceedToFinalStep),
         tap(() => {
           this.store.dispatch(SharedActions.increaseProgress())
+          this.store.dispatch(SharedActions.finalStep({finalStep: true}))
           this.router.navigateByUrl('/library/info')
         })
       )

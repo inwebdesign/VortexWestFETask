@@ -19,7 +19,9 @@ export class FormComponent implements OnDestroy {
   isDescriptionRequired$!: Subscription;
   constructor(private genreService: GenreService, private store: Store<sharedAppState>, private route: Router) {
     this.isDescriptionRequired$ = this.store.select(isDescriptionRequired).subscribe(res => {
-      res ? this.libraryForm.get('description')?.setValidators(Validators.required) : null
+      if(res) {
+        this.libraryForm.get('description')?.setValidators(Validators.required)
+      }
     })
   }
 
