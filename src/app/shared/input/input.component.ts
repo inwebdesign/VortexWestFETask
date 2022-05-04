@@ -12,6 +12,8 @@ export class InputComponent implements OnInit {
   constructor(private genreService: GenreService) { }
   @Input('placeholder') placeholder!: string;
   @Input('subgenre') subgenre!: string;
+  @Input('short') short!: boolean;
+  @Input('small') small!: boolean;
   @Input('needTrim') trim!: string;
   @Input('type') type!: string;
   @Input('control') control!: FormControl;

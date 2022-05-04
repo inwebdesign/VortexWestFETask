@@ -1,6 +1,8 @@
 <label
-  class="w-80 block relative bg-dark mga-4 mgx-auto"
+  class="w-100 block relative bg-dark mga-4 mgx-auto"
   [class.w-100]="subgenre"
+  [class.short]="short"
+  [class.small]="small"
 >
   <ng-container>
     <input
@@ -8,14 +10,6 @@
       class="w-100 pdl-4 pdt-4 shared-input txt-dark300"
       [formControl]="control"
     />
-    <!-- <input
-      [type]="type"
-      class="w-100 pdl-4 pdt-4 shared-input"
-      [attr.value]="value ? value : null"
-      [ngClass]="{ 'border-input radius-5 ': !isInlineInput }"
-      [attr.maxlength]="maxLength"
-      (blur)="trim && regService.removeWhiteSpace(control)"
-    /> -->
     <span class="floating-label absolute">{{ placeholder }}</span>
   </ng-container>
 </label>

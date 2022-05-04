@@ -6,9 +6,8 @@
   display: flex;
 }
 
-.flex-center {
-  justify-content: center;
-  align-items: center;
+.flex-between {
+  justify-content: space-between;
 }
 
 .block {
@@ -51,17 +50,24 @@
 // min/max sizes
 
 .form-size {
-  width: min(750px, 100%);
+  width: min(650px, 100%);
   margin: 0 auto;
 }
 
 .form-size-button {
     width: 10%;
     position: absolute;
-    right: -60px;
+    right: -100px;
     bottom: -51px;
 }
-
+.short {
+  width: 40% !important;
+  margin-left: 0;
+}
+.small {
+  width: 30% !important;
+  margin-left: 0;
+}
 /* .active-link {
   border-bottom: 2px solid $brand-primary-color;
 } */

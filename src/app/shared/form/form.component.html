@@ -28,6 +28,7 @@
     type="text"
     needTrim="true"
     [control]="gnrService.getFieldControl('datePublished', libraryForm)"
+    [short]="true"
   ></app-input>
   <app-input
     placeholder="Number of pages"
@@ -40,19 +41,22 @@
     type="text"
     needTrim="true"
     [control]="gnrService.getFieldControl('format', libraryForm)"
+    [short]="true"
   ></app-input>
-  <app-input
-    placeholder="Edition"
-    type="text"
-    needTrim="true"
-    [control]="gnrService.getFieldControl('edition', libraryForm)"
-  ></app-input>
-  <app-input
-    placeholder="Edition Language"
-    type="text"
-    needTrim="true"
-    [control]="gnrService.getFieldControl('editionLanguage', libraryForm)"
-  ></app-input>
+  <div class="flex flex-between w-60">
+    <app-input
+      placeholder="Edition"
+      type="text"
+      needTrim="true"
+      [control]="gnrService.getFieldControl('edition', libraryForm)"
+    ></app-input>
+    <app-input
+      placeholder="Edition Language"
+      type="text"
+      needTrim="true"
+      [control]="gnrService.getFieldControl('editionLanguage', libraryForm)"
+    ></app-input>
+  </div>
   <app-input
     placeholder="Description"
     type="text"
@@ -63,6 +67,7 @@
   class="ui button block mgx-auto txt-bold"
   (click)="onSubmit()"
   [disabled]="libraryForm.invalid"
+  type="button"
   >
   Add
 </button>
