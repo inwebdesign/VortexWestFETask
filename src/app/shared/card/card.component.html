@@ -5,13 +5,13 @@
     </div>
   </div>
 </div>
-<div class="four column stackable ui grid container" *ngIf="(subgenres | async) as subgenresList">
-  <div class="column" *ngFor="let subgenre of subgenresList" (click)="pickGenreOrSubgenre(subgenre.id)" >
+<div class="four column stackable ui grid container" *ngIf="listSubgenres && listSubgenres.length">
+  <div class="column" *ngFor="let subgenre of listSubgenres" (click)="pickGenreOrSubgenre(subgenre.id, listSubgenres)" >
     <div class="ui segment" [class.selected_genre]="selectedCategory === subgenre.id">
       <p class="txt-center">{{subgenre.name}}</p>
     </div>
   </div>
-  <div class="column" (click)="addNewSubgenre(subgenresList)" >
+  <div class="column" (click)="addNewSubgenre(listSubgenres)" >
     <div class="ui segment" [class.selected_genre]="addSubgenre">
       <p class="txt-center" >Add New</p>
     </div>

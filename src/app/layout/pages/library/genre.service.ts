@@ -21,6 +21,11 @@ export class GenreService {
   private BASE_URL = environment.BASE_URL;
   isFinalStep$!: Subscription;
   finalStep = false;
+  get subgernes() {
+    const subList = localStorage.getItem('subgenres')
+    if (subList == undefined) return
+    return JSON.parse(subList)
+  }
   // get list of genres
   getGenres(): Observable<Genres[]> {
     return this.http.get<Genres[]>(`${this.BASE_URL}${GenresAPI.GenresList}`)
