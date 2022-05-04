@@ -1,28 +1,24 @@
 <div class="ui steps" [class]="(((currentStep$ | async) == 2 && (newSubgenre$ | async)?.newSubgenre) ? 'four' : 'three')">
   <div class="step" [class]="(currentStep$ | async) == 0 ? 'active' : 'disabled'">
-    <i class="truck icon"></i>
     <div class="content">
-      <div class="title">Shipping</div>
+      <div class="title">Select genre</div>
     </div>
   </div>
   <div class="step" [class]="((currentStep$ | async) == 1 && !(finalStep$ | async)) ? 'active' : 'disabled'">
-    <i class="payment icon"></i>
     <div class="content">
-      <div class="title">Billing</div>
+      <div class="title">Select subgenre</div>
     </div>
   </div>
   <ng-container *ngIf="(currentStep$ | async) == 2 && !(finalStep$ | async)">
     <div class="step active">
-      <i class="payment icon"></i>
       <div class="content">
-        <div class="title">New Subgenre</div>
+        <div class="title">Add new Genre</div>
       </div>
     </div>
   </ng-container>
   <div class="step" [class]="(finalStep$ | async) ? 'active' : 'disabled'">
-    <i class="info icon"></i>
     <div class="content">
-      <div class="title">Confirm Order</div>
+      <div class="title">Submit Book</div>
     </div>
   </div>
 </div>
