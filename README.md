@@ -6,21 +6,22 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Server mock
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+For mocking http request, npm package json-server is used. In order to run it while app is open, you should start running it in separate terminal via this command:
 
-## Build
+npx json-server db/genres.json.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This should start mock server with .json format response of genres list. To learn more about this package, you can read https://www.npmjs.com/package/json-server
+
+## Styling
+
+CSS framework used for styling templates in this app is Semantic UI. For additional styling in paralel, custom css styles are created, stored inside of src/styles folder and
+implemented inside templates in format of helper classes (e.g flex)
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further help
 
