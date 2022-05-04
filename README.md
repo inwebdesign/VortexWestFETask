@@ -10,13 +10,13 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 For mocking http request, npm package json-server is used. In order to run it while app is open, you should start running it in separate terminal via this command:
 
-npx json-server db/genres.json.
+<code>npx json-server db/genres.json</code>
 
-This should start mock server with .json format response of genres list. To learn more about this package, you can read https://www.npmjs.com/package/json-server
+This should start mock server with .json format response of genres list. To learn more about this package, you can read <a href="https://www.npmjs.com/package/json-server">json-server</a>
 
 ## Styling
 
-CSS framework used for styling templates in this app is Semantic UI. For additional styling in paralel, custom css styles are created, stored inside of src/styles folder and
+CSS framework used for styling templates in this app is <a href="https://semantic-ui.com/">Semantic UI</a>. For additional styling in paralel, custom css styles are created, stored inside of src/styles folder and
 implemented inside templates in format of helper classes (e.g flex)
 
 ## Running unit tests
