@@ -45,7 +45,8 @@ export class FormComponent implements OnDestroy {
       )
     ]),
     'numberOfPages': new FormControl('', [
-      Validators.required
+      Validators.required,
+      Validators.pattern(/^[0-9]*$/)
     ]),
     'format': new FormControl('', [
       Validators.required
