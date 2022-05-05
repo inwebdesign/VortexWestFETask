@@ -4,7 +4,7 @@
   <button 
     class="ui button" 
     [disabled]="!(((isCategorySelected$ | async)?.selected) || ((isNewSubgenre$ | async)?.newSubgenre))" 
-    (click)="navigateToNextStep()"
-    [class.btn-hidden]="(finalStep$ | async) || ((isNewSubgenre$ | async) && currentStep >= 2)">Next</button>
+    (click)="prgService.navigateToNextStep()"
+    [class.btn-hidden]="(finalStep$ | async) || ((isNewSubgenre$ | async) && prgService.step >= 2)">Next</button>
 </div>
 
