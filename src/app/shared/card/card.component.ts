@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Genres, SubGenre } from 'src/app/models/genres';
-import { addNewSubgenre, categorySelection, selectedGenreId, selectedSubGenreId } from 'src/app/store/actions/shared.actions';
+import { addNewSubgenre, categorySelection, genreOfBooks, selectedGenreId, selectedSubGenreId, setSubgenresList } from 'src/app/store/actions/shared.actions';
 import { getGenreId } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 
@@ -24,19 +24,22 @@ export class CardComponent implements OnInit {
   subgnresList!: any[];
   listSubgenres!: ReadonlyArray<SubGenre>
 
-  pickGenreOrSubgenre(id: number, list?: any, required?: boolean) {
-    localStorage.setItem('subgenres', JSON.stringify(list))
+  pickGenreOrSubgenre(id: number, ...rest: any) {
+    const obj = {...rest}
+    localStorage.setItem('subgenres', JSON.stringify(obj[0]))
     this.addSubgenre ? this.toggleNewSubgenre() : ''
     this.store.dispatch(addNewSubgenre({newSubgenre: false}))
     this.selectedCategory = id;
     if (!this.selectedGenre) {
       this.store.dispatch(categorySelection({selected: true}))
       this.store.dispatch(selectedGenreId({id}))
+      this.store.dispatch(genreOfBooks({genreName: obj[0] }))
       return
      }
      this.store.dispatch(selectedSubGenreId({id}))
      this.store.dispatch(categorySelection({selected: true}))
-    if(required) localStorage.setItem('description', 'true')
+     this.store.dispatch(setSubgenresList({subgenres:{id, name: obj[2], isDescriptionRequired: obj[1]}}))
+    if(obj[1]) localStorage.setItem('description', 'true')
   }
   addNewSubgenre(list: any) {
     this.subgnresList = Object.values(list)

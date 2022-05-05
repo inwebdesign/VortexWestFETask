@@ -31,6 +31,28 @@ export const appSharedReducer = createReducer(
       categorySelected: selected
     }
   }),
+  on(SharedActions.genreOfBooks, (state, {genreName}) => {
+    return {
+      ...state,
+      genreName: {
+        genreName
+      }
+    }
+  }),
+  on(SharedActions.setSubgenresList, (state, {subgenres}) => {
+    return {
+      ...state,
+        selectedSubgenre: {
+          subgenres: [
+            {
+              id: subgenres.id,
+              name: subgenres.name,
+              isDescriptionRequired: subgenres.isDescriptionRequired
+            }
+          ]
+        }
+    }
+  }),
   on(SharedActions.increaseProgress, (state) => {
     return {
       ...state,

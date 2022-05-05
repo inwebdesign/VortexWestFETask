@@ -18,6 +18,10 @@ export interface SubgenreId {
   id: number;
 }
 
+export interface GenreName {
+  genreName?: string;
+}
+
 export interface SubgenresList {
   subgenres: SubGenre[]
 }

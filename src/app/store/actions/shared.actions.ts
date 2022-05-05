@@ -26,7 +26,10 @@ export const getSubgenresSuccess = createAction(
   '[SubgenresWrapper Component] Get List of Subgenres Success',
   props<{subgenres: SubGenre[]}>()
 );
-
+export const setSubgenresList = createAction(
+  '[Cards Component] Set Subgenres',
+  props<{subgenres: SubGenre}>()
+)
 export const getSubGenresListFailure = createAction(
   '[SubgenresWrapper Component] Subgenres List Failure',
   props<{ error: any }>()
@@ -65,6 +68,10 @@ export const finalStep = createAction(
   '[Information Component] Final Step',
   props<{finalStep: boolean}>()
 )
+export const genreOfBooks = createAction(
+  '[Genre/Subgenre Component] Set Name',
+  props<{genreName: string}>()
+)
 // add new subgenre
 export const addNewSubgenre = createAction(
   '[Subgenre Component] Adding New Subgenre',
@@ -84,3 +91,4 @@ export const bookSubmitionSuccess = createAction(
   '[Info Component] Book Submition',
   props<{success: boolean}>()
 )
+

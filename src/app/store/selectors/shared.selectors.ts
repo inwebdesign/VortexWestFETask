@@ -14,3 +14,10 @@ export const isDescriptionRequired = createSelector(getAppState, state => state.
 export const getCurrentStep = createSelector(getAppState, state => state.currentStep.step)
 export const isFinalStep = createSelector(getAppState, state => state.isFinalStep.finalStep)
 export const isBookSubmited = createSelector(getAppState, state => state.bookSubmited.success)
+export const payload = createSelector(getAppState, state => {
+  return {
+    id: state.genreId.id,
+    name: state.genreName.genreName,
+    subgenres: state.selectedSubgenre.subgenres
+  }
+})

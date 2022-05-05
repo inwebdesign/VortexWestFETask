@@ -1,13 +1,15 @@
-import { CategorySelected, Description, FinalStepIndicator, GenreId, Genres, NewSubgenre, StepIndicator, SubGenre, SubgenreId, SubgenresList, Submit } from "../models/genres";
+import { CategorySelected, Description, FinalStepIndicator, GenreId, GenreName, Genres, NewSubgenre, StepIndicator, SubGenre, SubgenreId, SubgenresList, Submit } from "../models/genres";
 
 export interface sharedAppState {
   genres: Genres[],
   genreId: GenreId,
   subgenreId: SubgenreId,
+  genreName: GenreName,
   categorySelected: CategorySelected,
   currentStep: StepIndicator,
   isFinalStep: FinalStepIndicator,
   genreSubgenres: SubgenresList,
+  selectedSubgenre: SubgenresList,
   addNewSubgenre: NewSubgenre,
   subgenreDescription: Description,
   bookSubmited: Submit
@@ -33,6 +35,9 @@ export const initialAppState: sharedAppState = {
   subgenreId: {
     id: 0
   },
+  genreName: {
+    genreName: '',
+  },
   categorySelected: {
     selected: false
   },
@@ -48,6 +53,15 @@ export const initialAppState: sharedAppState = {
       name: '',
       isDescriptionRequired: false
     }
+    ]
+  },
+  selectedSubgenre: {
+    subgenres: [
+      {
+        id: 0,
+        name: '',
+        isDescriptionRequired: false
+      }
     ]
   },
   addNewSubgenre: {
