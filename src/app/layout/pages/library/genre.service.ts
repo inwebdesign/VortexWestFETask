@@ -84,4 +84,9 @@ export class GenreService {
     this.router.navigateByUrl('home')
     this.store.dispatch(bookSubmitionSuccess({success: false}))
   }
+  // reset description
+  resetDescription() {
+    localStorage.removeItem('description')
+    this.store.dispatch(descriptionRequired({required: false}))
+  }
 }

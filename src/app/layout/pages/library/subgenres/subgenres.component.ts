@@ -21,8 +21,8 @@ export class SubgenresComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.store.dispatch(categorySelection({selected: false}))
-    this.genreService.subgernes !== undefined ? this.subgenres = this.genreService.subgernes : ''
+    this.store.dispatch(categorySelection({selected: false}));
+    (this.subgenres && this.genreService.subgernes !== undefined) ? this.subgenres = this.genreService.subgernes : ''
 
   }
 

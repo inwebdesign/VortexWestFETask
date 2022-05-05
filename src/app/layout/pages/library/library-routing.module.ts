@@ -4,6 +4,7 @@ import { HomeLibraryComponent } from '../library/home-library/home-library.compo
 import { GenresWrapperComponent } from './genres-wrapper/genres-wrapper.component';
 import { InformationComponent } from './information/information.component';
 import { NewSubgenreComponent } from './new-subgenre/new-subgenre.component';
+import { RouteGuard } from './route.guard';
 import { SubgenresWrapperComponent } from './subgenres-wrapper/subgenres-wrapper.component';
 import { SuccessSubmitionComponent } from './success-submition/success-submition.component';
 
@@ -18,21 +19,25 @@ const routes: Routes = [
       },
       {
         path: 'subgenres',
-        component: SubgenresWrapperComponent
+        component: SubgenresWrapperComponent,
+        canActivate: [RouteGuard]
       },
       {
         path: 'new',
-        component: NewSubgenreComponent
+        component: NewSubgenreComponent,
+        canActivate: [RouteGuard]
       },
       {
         path: 'info',
-        component: InformationComponent
+        component: InformationComponent,
+        canActivate: [RouteGuard]
       },
       {
         path: 'success',
-        component: SuccessSubmitionComponent
+        component: SuccessSubmitionComponent,
+        canActivate: [RouteGuard]
       }
-    ]
+    ],
   },
 ];
 
