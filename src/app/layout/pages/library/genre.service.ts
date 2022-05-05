@@ -45,6 +45,10 @@ export class GenreService {
       })
     )
   }
+  // submit new subgenre to genres list
+  addSubgenreToGenresList(payload: Genres): void {
+    this.http.post<Genres>(`${this.BASE_URL}${GenresAPI.GenresList}`, {id: payload.id, name: payload.name, subgenres: payload.subgenres}).subscribe(res => console.log('SAVED TO GENRE LIST:', res))
+  }
   // Form Control field values pick
   getFieldControl(item: string, form: FormGroup) {
     return form.get(item) as FormControl;

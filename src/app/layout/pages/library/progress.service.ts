@@ -38,7 +38,7 @@ export class ProgressService {
       this.router.navigateByUrl('/library/info')
       return
     }
-    if (this.genreId) {
+    if (this.genreId && !this.subgenreId) {
       this.store.dispatch(getSubgenresRequest({id: this.genreId }))
       return
     }

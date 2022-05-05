@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Genres, SubGenre, SubgenresList } from 'src/app/models/genres';
+import { Genres, SubGenre, SubgenresIds, SubgenresList } from 'src/app/models/genres';
 
 export const startLibrary = createAction(
   '[Landing Page Home Component] Start The App'
@@ -91,4 +91,12 @@ export const bookSubmitionSuccess = createAction(
   '[Info Component] Book Submition',
   props<{success: boolean}>()
 )
-
+export const setLastSubgenreId = createAction(
+  '[Store Effects] Store Last Subgenre Id',
+  props<SubgenresIds>()
+)
+// submit new subgenre
+export const submitNewSubgenre = createAction(
+  '[New Subgenre Component] Submit New Subgenre',
+  props<Genres>()
+)

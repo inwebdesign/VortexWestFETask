@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { getSubgenresRequest } from 'src/app/store/actions/shared.actions';
-import { sharedAppState } from 'src/app/store/state';
 
 @Component({
   selector: 'app-subgenres-wrapper',

@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Genres, SubGenre } from 'src/app/models/genres';
-import { addNewSubgenre, categorySelection, genreOfBooks, selectedGenreId, selectedSubGenreId, setSubgenresList } from 'src/app/store/actions/shared.actions';
-import { getGenreId } from 'src/app/store/selectors/shared.selectors';
+import { addNewSubgenre, categorySelection, decreaseProgress, genreOfBooks, selectedGenreId, selectedSubGenreId, setSubgenresList } from 'src/app/store/actions/shared.actions';
+import { getCurrentStep, getGenreId } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 
 @Component({
@@ -13,7 +13,9 @@ import { sharedAppState } from 'src/app/store/state';
 })
 export class CardComponent implements OnInit {
 
-  constructor(private store: Store<sharedAppState>) { }
+  constructor(private store: Store<sharedAppState>) {
+    this.activeStep$ = this.store.select(getCurrentStep).subscribe(res => this.currentStep = res)
+  }
   @Input('genres') genres!: Observable<ReadonlyArray<Genres>>
   @Input('subgenres') subgenres!: Observable<ReadonlyArray<SubGenre>>
   @Input('listOfSubgenres') listOfSubgenres!: ReadonlyArray<SubGenre>
@@ -22,9 +24,12 @@ export class CardComponent implements OnInit {
   selectedCategory!: number;
   addSubgenre = false
   subgnresList!: any[];
+  currentStep!: number;
   listSubgenres!: ReadonlyArray<SubGenre>
+  activeStep$!: Subscription
 
   pickGenreOrSubgenre(id: number, ...rest: any) {
+    if (this.selectedGenre && this.selectedGenre > 0 && this.currentStep == 0) this.selectedGenre = 0
     const obj = {...rest}
     localStorage.setItem('subgenres', JSON.stringify(obj[0]))
     this.addSubgenre ? this.toggleNewSubgenre() : ''
@@ -56,16 +61,13 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     this.store.select(getGenreId).subscribe(res => this.selectedGenre = res.id)
     if (this.subgenres) {this.subgenres.subscribe(res => {
-      if(res.length == 1) {
-        this.listSubgenres = this.listOfSubgenres
-        return
-      }
       this.listSubgenres = res
     })
   }
   }
   ngOnDestroy(): void {
     this.addSubgenre = false
+    this.activeStep$.unsubscribe()
   }
 
 }

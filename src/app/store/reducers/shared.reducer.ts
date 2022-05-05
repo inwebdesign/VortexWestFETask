@@ -53,6 +53,14 @@ export const appSharedReducer = createReducer(
         }
     }
   }),
+  on(SharedActions.setLastSubgenreId, (state, {id}) => {
+    return {
+      ...state,
+      subgenresLastId: {
+        id
+      }
+    }
+  }),
   on(SharedActions.increaseProgress, (state) => {
     return {
       ...state,

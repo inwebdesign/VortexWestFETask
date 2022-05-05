@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { setSubgenresList, submitNewSubgenre } from 'src/app/store/actions/shared.actions';
+import { getSubGenreId, payload } from 'src/app/store/selectors/shared.selectors';
+import { sharedAppState } from 'src/app/store/state';
 import { GenreService } from '../genre.service';
 
 @Component({
@@ -7,9 +11,12 @@ import { GenreService } from '../genre.service';
   templateUrl: './new-subgenre.component.html',
   styleUrls: ['./new-subgenre.component.scss']
 })
-export class NewSubgenreComponent implements OnInit {
-
-  constructor(private genreService: GenreService) { }
+export class NewSubgenreComponent {
+  subgenreId = 0
+  
+  constructor(private genreService: GenreService, private store: Store<sharedAppState>) {
+    this.store.select(getSubGenreId).subscribe(res => this.subgenreId = res.id)
+   }
   newSubgenreForm = new FormGroup({
     'subgenreName': new FormControl('', [
       Validators.required,
@@ -26,10 +33,12 @@ export class NewSubgenreComponent implements OnInit {
     }
   }
   onSubmit() {
-    const {description} = this.newSubgenreForm.value
+    const {description, subgenreName} = this.newSubgenreForm.value
     this.genreService.setDescriptionRequirement(description, true)
+    this.store.dispatch(setSubgenresList({subgenres:{id: this.subgenreId, name: subgenreName, isDescriptionRequired: description}}))
+    this.store.select(payload).subscribe(res => this.store.dispatch(submitNewSubgenre({id: res.id, name: res.name, subgenres: res.subgenres})))
   }
-  ngOnInit(): void {
+  ngOnDestroy(): void {
   }
 
 }

@@ -8,6 +8,7 @@ export const getGenres = createSelector(getAppState, state => state.genres)
 export const getSubGenres = createSelector(getAppState, state => state.genreSubgenres.subgenres)
 export const getGenreId = createSelector(getAppState, state => state.genreId)
 export const getSubGenreId = createSelector(getAppState, state => state.subgenreId)
+export const getLastSubgenreId = createSelector(getAppState, state => state.subgenresLastId.id)
 export const isCategorySelected = createSelector(getAppState, state => state.categorySelected)
 export const isNewSubgenreAdded = createSelector(getAppState, state => state.addNewSubgenre)
 export const isDescriptionRequired = createSelector(getAppState, state => state.subgenreDescription.required)
@@ -16,8 +17,12 @@ export const isFinalStep = createSelector(getAppState, state => state.isFinalSte
 export const isBookSubmited = createSelector(getAppState, state => state.bookSubmited.success)
 export const payload = createSelector(getAppState, state => {
   return {
-    id: state.genreId.id,
-    name: state.genreName.genreName,
-    subgenres: state.selectedSubgenre.subgenres
+    id: state.genres.length + 1,
+    name: "Genre " + (state.genres.length + 1),
+    subgenres: [{
+      id: state.subgenresLastId.id + 1,
+      name: state.selectedSubgenre.subgenres[0].name,
+      isDescriptionRequired: state.selectedSubgenre.subgenres[0].isDescriptionRequired
+    }]
   }
 })

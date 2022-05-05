@@ -6,14 +6,16 @@ export interface SubGenre {
 
 export interface Genres {
   id: number;
-  name: string;
+  name?: string;
   subgenres: SubGenre[]
 }
 
 export interface GenreId {
   id: number;
 }
-
+export interface SubgenresIds {
+  id: number;
+}
 export interface SubgenreId {
   id: number;
 }
