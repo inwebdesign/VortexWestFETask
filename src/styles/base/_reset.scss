@@ -77,3 +77,12 @@ h6 {
 h1 {
   font-family: 'Cinzel Decorative', cursive;
 }
+
+@media only screen and (max-width: 767px) {
+  .ui.container {
+    width: auto !important;
+    .ui.button {
+      width: 15% !important;
+    }
+  }
+}
