@@ -2,12 +2,12 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { GenreService } from 'src/app/layout/pages/library/genre.service';
-import { Description } from 'src/app/models/genres';
 import { bookSubmitionSuccess } from 'src/app/store/actions/shared.actions';
 import { isDescriptionRequired } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
+import { DatePublishedValidator } from '../date-published-validator';
 
 @Component({
   selector: 'app-form',
@@ -38,8 +38,11 @@ export class FormComponent implements OnDestroy {
     'publisher': new FormControl('', [
       Validators.required
     ]), 
-    'datePublished': new FormControl('', [
-      Validators.required
+    'datePublished': new DatePublishedValidator('', [
+      Validators.required,
+      Validators.pattern(
+        /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/
+      )
     ]),
     'numberOfPages': new FormControl('', [
       Validators.required
