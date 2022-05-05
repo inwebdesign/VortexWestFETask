@@ -74,6 +74,11 @@ export class GenreService {
     }
     return null;
   }
+   // remove white space from input field
+   removeWhiteSpace(control: FormControl) {
+    const { value } = control;
+    control.setValue(value.trim());
+  }
   // start new book submition
   newSubmition() {
     this.router.navigateByUrl('home')

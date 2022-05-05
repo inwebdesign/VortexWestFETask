@@ -9,6 +9,7 @@
       [type]="type"
       class="w-100 pdl-4 pdt-4 shared-input txt-dark300"
       [formControl]="control"
+      (blur)="trim && genrService.removeWhiteSpace(control)"
     />
     <span class="floating-label absolute">{{ placeholder }}</span>
   </ng-container>
