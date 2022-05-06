@@ -45,7 +45,11 @@ export const selectedSubGenreId = createAction(
   '[Card Component] Selected SubGenre ID',
   props<{id: number}>()
 )
-
+// find the last subgenre id in list of genres
+export const setLastSubgenreId = createAction(
+  '[Store Effects] Store Last Subgenre Id',
+  props<SubgenresIds>()
+)
 // category (sub/genre) selected
 export const categorySelection = createAction(
   '[Card Component] Selecte Category - Genre or Subgenre',
@@ -91,9 +95,10 @@ export const bookSubmitionSuccess = createAction(
   '[Info Component] Book Submition',
   props<{success: boolean}>()
 )
-export const setLastSubgenreId = createAction(
-  '[Store Effects] Store Last Subgenre Id',
-  props<SubgenresIds>()
+// reset progress step
+export const resetProgressStepToInitalValue = createAction(
+  '[Info Component] Book Submition',
+  // props<{step:}>()
 )
 // submit new subgenre
 export const submitNewSubgenre = createAction(

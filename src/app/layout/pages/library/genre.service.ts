@@ -7,7 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Genres, SubgenresList } from 'src/app/models/genres';
 import { GenresAPI } from 'src/app/shared/endpoints';
-import { bookSubmitionSuccess, descriptionRequired, proceedToFinalStep, revertToPreviousPage } from 'src/app/store/actions/shared.actions';
+import { bookSubmitionSuccess, descriptionRequired, proceedToFinalStep, resetProgressStepToInitalValue, revertToPreviousPage } from 'src/app/store/actions/shared.actions';
 import { isFinalStep } from 'src/app/store/selectors/shared.selectors';
 import { sharedAppState } from 'src/app/store/state';
 import { environment } from 'src/environments/environment';

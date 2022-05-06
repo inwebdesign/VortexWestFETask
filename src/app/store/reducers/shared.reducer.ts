@@ -124,5 +124,13 @@ export const appSharedReducer = createReducer(
         success
       }
     }
+  }),
+  on(SharedActions.resetProgressStepToInitalValue, (state) => {
+    return {
+      ...state,
+      currentStep: {
+        step: 0
+      }
+    }
   })
 );

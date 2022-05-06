@@ -93,9 +93,6 @@ export class SharedEffects {
           if (this.router.url === '/library') {
             this.router.navigateByUrl('home')
             this.store.dispatch(SharedActions.resetProgress())
-            // this.store.dispatch(SharedActions.selectedGenreId({ id: 0 }))
-            // this.store.dispatch(SharedActions.selectedSubGenreId({ id: 0 }))
-            // this.store.dispatch(SharedActions.categorySelection({ selected: false }))
             this.reset()
             return
           }
@@ -135,7 +132,18 @@ export class SharedEffects {
         )
       }, {dispatch: false}
     )
-
+    // submit book with existing data
+    submitBook = createEffect(
+      () => {
+        return this.actions$.pipe(
+          ofType(SharedActions.resetProgressStepToInitalValue),
+          tap(() => {
+            this.reset()
+            this.store.dispatch(SharedActions.finalStep({finalStep: false}))
+          })
+        )
+      }, {dispatch: false}
+    )
 
   constructor(
     private actions$: Actions,

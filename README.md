@@ -19,10 +19,6 @@ This should start mock server with .json format response of genres list. To lear
 CSS framework used for styling templates in this app is <a href="https://semantic-ui.com/">Semantic UI</a>. For additional styling in paralel, custom css styles are created, stored inside of src/styles folder and
 implemented inside templates in format of helper classes (e.g flex)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
